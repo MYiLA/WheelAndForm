@@ -1,3 +1,30 @@
+@font-face {
+  font-family: "Ibmplex Sans";
+  src: url("../fonts/ibmplexsans-bold.woff2"),
+    url("../fonts/ibmplexsans-bold.woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/montserrat-bold.woff2"),
+    url("../fonts/montserrat-bold.woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/montserrat-semibold.woff2"),
+    url("../fonts/montserrat-semibold.woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 .hidden,
 input[type="checkbox"].visually-hidden,
 input[type="radio"].visually-hidden {
@@ -45,12 +72,14 @@ input[type="radio"].visually-hidden {
 
 .wheel__thanks {
   display: block;
-  width: 350px;
+  width: 373px;
   align-self: center;
   margin: 0;
   padding: 0;
   text-align: center;
-  font-family: "Arial", "sans-serif";
+  font-family: "Montserrat", "Arial", "sans-serif";
+  font-style: normal;
+  font-weight: 700;
   font-size: 36px;
   line-height: 43px;
   color: rgb(255, 255, 255);
@@ -70,7 +99,8 @@ input[type="radio"].visually-hidden {
 .wheel__title {
   margin: 0;
   padding: 0;
-  font-family: "Arial", "sans-serif";
+  font-family: "Montserrat", "Arial", "sans-serif";
+  font-weight: 700;
   font-size: 30px;
   line-height: 38px;
   color: rgb(255, 255, 255);
@@ -233,7 +263,9 @@ input[type="radio"].visually-hidden {
   margin-bottom: 60px;
   padding: 0;
   text-align: center;
-  font-family: "Arial", "sans-serif";
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
   font-size: 36px;
   line-height: 43px;
   color: rgb(255, 255, 255);
