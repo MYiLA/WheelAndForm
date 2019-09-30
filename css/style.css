@@ -14,12 +14,14 @@ input[type="radio"].visually-hidden {
 }
 
 .wheel {
-  box-sizing: border-box;
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
-  padding-top: 175px;
-  padding-bottom: 185px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+
   background-color: rgba(4, 4, 19, 0.89);
 }
 
@@ -28,7 +30,7 @@ input[type="radio"].visually-hidden {
   width: 1520px;
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
+  margin: auto;
   background-image: url(../img/line-neon-desctop.png);
   background-repeat: no-repeat;
   background-position: 79% 100%;
