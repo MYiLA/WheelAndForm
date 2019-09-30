@@ -35,13 +35,19 @@ const spin = (sectors) => {
 };
 
 const resizeWheel = () => {
-  const defaultWidth = 800;
-  const defaultHeigth = 800;
+  const vertical = window.innerWidth < window.innerHeight;
+  const defaultWidth = vertical ? 800 : 800;
+  const defaultHeigth = vertical ? 800 : 800;
 
   const scaleX = window.innerWidth / defaultWidth;
   const scaleY = window.innerHeight / defaultHeigth;
   const scale = Math.min(1, scaleX, scaleY);
 
+  if (vertical) {
+    document.querySelector('.wheel__wrap').classList.add('vertical');
+  } else {
+    document.querySelector('.wheel__wrap').classList.remove('vertical');
+  }
   document.querySelector('.wheel').style.fontSize = `${scale}px`;
 };
 
