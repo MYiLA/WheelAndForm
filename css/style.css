@@ -15,6 +15,7 @@ input[type="radio"].visually-hidden {
 
 .wheel {
   position: fixed;
+  z-index: 10;
   top: 0;
   bottom: 0;
   left: 0;
@@ -22,7 +23,11 @@ input[type="radio"].visually-hidden {
   margin: auto;
   display: flex;
 
+  font-size: 1px;
   background-color: rgba(4, 4, 19, 0.89);
+  transition: font-size 1s;
+
+  /* transform: translateZ(0); */
 }
 
 .wheel__wrap {
@@ -33,16 +38,12 @@ input[type="radio"].visually-hidden {
   margin: auto;
   background-image: url(../img/line-neon-desctop.png);
   background-repeat: no-repeat;
-  background-position: 79% 100%;
+  background-position: 82% 86%;
   background-size: 1080px;
 }
 
-.wheel__wheel {
-  width: 730px;
-  height: 730px;
+.wheel__reel {
   flex-shrink: 0;
-  background-color: rgba(14, 201, 255, 0.3);
-  border-radius: 50%;
 }
 
 .wheel__thanks {

@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/reel.css" />
   <title>Бонусное Колесо</title>
 </head>
 
@@ -11,7 +12,13 @@
   <main>
     <div class="wheel">
       <div class="wheel__wrap">
-        <div class="wheel__wheel"></div>
+        <div class="wheel__reel reel">
+          <div class="reel__inner reel__inner--circle-small"></div>
+          <div class="reel__inner reel__inner--circle-medium"></div>
+          <div class="reel__inner reel__inner--circle-content"></div>
+          <div class="reel__inner reel__inner--logo"></div>
+          <div class="reel__inner reel__inner--pointer"></div>
+        </div>
         <p class="wheel__thanks hidden">
           Спасибо, мы скоро
           свяжемся с вами,
@@ -58,6 +65,17 @@
       </div>
     </div>
   </main>
+
+  <script src="scripts/wheel.js"></script>
+  <script>
+    const reelConfig = Array.from({ length: 12 }, (_, i) => ({
+      text: `${i * 5}%`,
+      value: i,
+      allow: true,
+    }));
+
+    window.showWheel(reelConfig);
+  </script>
 </body>
 
 </html>
