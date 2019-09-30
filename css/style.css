@@ -24,7 +24,7 @@ input[type="radio"].visually-hidden {
   display: flex;
 
   font-size: 1px;
-  font-family: Montserrat, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: rgba(4, 4, 19, 0.89);
   transition: font-size 1s;
 
