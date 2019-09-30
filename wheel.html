@@ -69,11 +69,15 @@
 
   <script src="scripts/wheel.js"></script>
   <script>
-    const reelConfig = Array.from({ length: 12 }, (_, i) => ({
-      text: `${i * 5}%`,
+    const reelConfig = Array.from({ length: 11 }, (_, i) => ({
+      text: `${(i + 1) * 5}%`,
       value: i,
       allow: true,
-    }));
+    })).concat({
+      text: 'бесплатная игра',
+      value: -1,
+      allow: false,
+    });
 
     window.showWheel(reelConfig);
   </script>
