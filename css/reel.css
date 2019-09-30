@@ -1,0 +1,99 @@
+.reel {
+  position: relative;
+  width: 756em;
+  height: 756em;
+}
+
+.reel::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background-image: url(../img/reel-background.png);
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  animation: wheel 150s linear infinite reverse;
+}
+
+.reel__inner {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transition: transform 6s;
+  transition-timing-function: cubic-bezier(.33,.59,.41,.96);
+}
+
+.reel__inner--pointer {
+  left: auto;
+  right: -34em;
+  bottom: -6em;
+  width: 117em;
+  height: 128em;
+  background-image: url(../img/reel-pointer.png);
+}
+
+.reel__inner--logo {
+  width: 138em;
+  height: 138em;
+  background-image: url(../img/reel-logo.png);
+}
+.reel__inner--circle-small {
+  width: 208em;
+  height: 208em;
+  background-image: url(../img/reel-circle-small.png);
+}
+.reel__inner--circle-medium {
+  width: 290em;
+  height: 290em;
+  background-image: url(../img/reel-circle-medium.png);
+}
+.reel__inner--circle-content {
+  width: 756em;
+  height: 756em;
+  background-image: url(../img/reel-circle-content.png);
+  transition-timing-function: cubic-bezier(0.3, 0.58, 0.2, 1.02);
+}
+
+.reel__sector {
+  position: absolute;
+  width: 160em;
+  right: 58em;
+  top: 50%;
+  transform-origin: -160em 50%;
+  transform: translateY(-50%) rotate(0);
+
+  text-align: center;
+}
+
+.reel__sector-text {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 23em;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 0 0 2px #0f5072;
+}
+
+.reel__sector-text--big {
+  font-size: 40em;
+}
+
+@keyframes wheel {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
