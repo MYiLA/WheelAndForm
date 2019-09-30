@@ -77,8 +77,9 @@
 }
 
 .reel__sector-text {
+  font-family: 'IBM Plex Sans', sans-serif;
   font-size: 23em;
-  font-weight: bold;
+  font-weight: 700;
   color: #fff;
   text-transform: uppercase;
   text-shadow: 0 0 2px #0f5072;
