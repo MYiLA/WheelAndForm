@@ -260,46 +260,51 @@ input[type="radio"].hidden {
   color: rgb(255, 255, 255);
 }
 
-.vertical {
+.wheel--vertical .wheel__wrap {
   width: 825px;
   min-height: 1420px;
   flex-wrap: wrap;
   background-image: url(../img/line-neon-mobile.png);
-  background-size: 715px;
+  background-size: 750px;
   background-position: 34% 50%;
   position: relative;
 }
 
-.vertical .wheel__form {
-  padding-top: 60px;
+.wheel--vertical .wheel__form {
+  padding-top: 85px;
   padding-bottom: 10px;
   padding-left: 95px;
   padding-right: 60px;
-  height: 1275px;
+  height: 1413px;
   width: 715px;
 }
 
-.vertical .wheel__title {
+.wheel--vertical .wheel__fieldset-wrap {
+flex-direction: column;
+justify-content: space-between;
+}
+
+.wheel--vertical .wheel__title {
   padding-right: 10px;
 }
 
-.vertical .wheel__reel {
+.wheel--vertical .wheel__authorization {
+  flex-grow: 1;
+}
+
+.wheel--vertical .wheel__reel {
   order: 1;
   position: absolute;
-  bottom: 120px;
-  left: 48%;
+  bottom: 172px;
+  left: 49%;
   transform: translateX(-50%)
 }
 
-.vertical .wheel__authorization {
-  align-self: flex-start;
-}
-
-.vertical .wheel__close {
+.wheel--vertical .wheel__close {
   order: 1;
 }
 
-.vertical .wheel__thanks {
+.wheel--vertical .wheel__thanks {
   box-sizing: border-box;
   margin-left: 215px;
   padding-top: 235px;

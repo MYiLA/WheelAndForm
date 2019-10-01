@@ -45,9 +45,9 @@ const resizeWheel = () => {
   const scale = Math.min(1, scaleX, scaleY);
 
   if (vertical) {
-    document.querySelector('.wheel__wrap').classList.add('vertical');
+    document.querySelector('.wheel').classList.add('wheel--vertical');
   } else {
-    document.querySelector('.wheel__wrap').classList.remove('vertical');
+    document.querySelector('.wheel').classList.remove('wheel--vertical');
   }
   document.querySelector('.wheel').style.fontSize = `${scale}px`;
 };
