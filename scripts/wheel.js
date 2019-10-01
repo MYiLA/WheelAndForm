@@ -1,3 +1,7 @@
+'use strict';
+
+(() => {
+
 window.showWheel = (sectors, _cb) => {
   const wheel = document.querySelector('.wheel');
   const countdown = document.querySelector('.wheel__countdown');
@@ -144,3 +148,5 @@ const debounce = (func, delay) => {
 };
 
 const random = (max) => Math.floor(Math.random() * max);
+
+})();
