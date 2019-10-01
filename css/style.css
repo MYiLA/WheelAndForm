@@ -21,11 +21,12 @@ input[type="radio"].hidden {
   left: 0;
   right: 0;
   display: flex;
+  opacity: 0;
 
   font-size: 1px;
   font-family: 'Montserrat', sans-serif;
   background-color: rgba(4, 4, 19, 0.89);
-  transition: font-size 1s, opacity 0.3s;
+  transition: font-size 1s, opacity 0.5s;
 
   /* transform: translateZ(0); */
 }

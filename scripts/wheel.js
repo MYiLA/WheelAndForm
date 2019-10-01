@@ -126,6 +126,7 @@ const getSectorsHtml = sectors => sectors
   .map(({ text }, i) => {
     const style = `transform: translateY(-50%) rotate(${(360/12) * i}deg)`;
     const bigTextClass = /^[0-9]+\%$/.test(text) ? 'reel__sector-text--big' : '';
+
     return (
       `<div class="reel__sector" style="${style}">
         <span class="reel__sector-text ${bigTextClass}">${text}</span>
