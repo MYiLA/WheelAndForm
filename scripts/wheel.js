@@ -1,5 +1,7 @@
 window.showWheel = (sectors, _cb) => {
   const wheel = document.querySelector('.wheel');
+  const countdown = document.querySelector('.wheel__countdown');
+
   const smallReel = document.querySelector('.reel__inner--circle-small');
   const mediumReel = document.querySelector('.reel__inner--circle-medium');
   const contentReel = document.querySelector('.reel__inner--circle-content');
@@ -9,6 +11,8 @@ window.showWheel = (sectors, _cb) => {
   const checkboxInput = document.querySelector('.wheel__checkbox');
   const continueBtn = document.querySelector('.wheel__button');
   const closeBtn = document.querySelector('.wheel__close');
+
+  let countdownIntervalId = null;
 
   const init = () => {
     wheel.style.opacity = 1;
@@ -23,12 +27,13 @@ window.showWheel = (sectors, _cb) => {
     checkboxInput.addEventListener('input', inputHandler);
 
     continueBtn.addEventListener('click', spin);
-
     closeBtn.addEventListener('click', hide);
   };
 
   const hide = () => {
     wheel.style.opacity = 0;
+
+    clearInterval(countdownIntervalId);
   
     window.removeEventListener('resize', resizeHandler);
   
@@ -49,7 +54,7 @@ window.showWheel = (sectors, _cb) => {
     const availableSectors = sectors.filter(({ allow }) => allow);
     const resultSector = availableSectors[random(availableSectors.length)];
     const resultIndex = sectors.indexOf(resultSector);
-    const angle = (5 * 360) - (360 / sectors.length) * resultIndex;
+    const angle = (5 * 360) - ((360 / sectors.length) * resultIndex);
     const randomOffset = 0.8 * (Math.random() - 0.5) * (360 / sectors.length);
   
     contentReel.style.transform = `rotate(${angle + randomOffset}deg)`;
@@ -57,6 +62,21 @@ window.showWheel = (sectors, _cb) => {
     mediumReel.style.transform = `rotate(-${(4 + Math.random()) * 360}deg)`;
   
     contentReel.addEventListener('transitionend', spinStopHandler);
+  };
+
+  const startCountdown = () => {
+    let secondsLeft = 10 * 60;
+    countdown.innerText = stringifyTime(secondsLeft);
+
+    countdownIntervalId = setInterval(() => {
+      if (secondsLeft <= 0) {
+        hide();
+        return;
+      }
+
+      secondsLeft -= 1;
+      countdown.innerText = stringifyTime(secondsLeft);
+    }, 1000);
   };
 
   const resize = () => {
@@ -102,6 +122,15 @@ const getSectorsHtml = sectors => sectors
     );
   })
   .reduce((acc, curr) => `${acc}${curr}`, '');
+
+const stringifyTime = seconds => {
+  const s = seconds % 60;
+  const m = (seconds - s) / 60;
+  const ss = s >= 10 ? s : `0${s}`;
+  const mm = m >= 10 ? m : `0${m}`;
+
+  return `${mm}:${ss}`;
+}
 
 const debounce = (func, delay) => {
   let timeoutId = null;
