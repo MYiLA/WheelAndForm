@@ -102,11 +102,18 @@ window.showWheel = (sectors, _cb) => {
 
   const resizeHandler = debounce(resize, 150);
 
-  const inputHandler = () => {
+  const inputHandler = ({ target }) => {
+    if (target.value === '') {
+      target.classList.add('wheel__input--invalid');
+    } else {
+      target.classList.remove('wheel__input--invalid');
+    }
+
     continueBtn.disabled = nameInput.value === '' || phoneInput.value === '' || !checkboxInput.checked;
   };
 
   const spinStopHandler = () => {
+    contentReel.removeEventListener('transitionend', spinStopHandler);
     continueBtn.disabled = false;
   };
 
