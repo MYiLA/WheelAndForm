@@ -1,6 +1,6 @@
-.hidden,
-input[type="checkbox"].hidden,
-input[type="radio"].hidden {
+.wheel--hidden,
+input[type="checkbox"].wheel--hidden,
+input[type="radio"].wheel--hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -100,7 +100,6 @@ input[type="radio"].hidden {
 
 .wheel__fieldset-wrap {
   height: 100%;
-  flex-grow: 1;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -263,7 +262,6 @@ input[type="radio"].hidden {
 .wheel--vertical .wheel__wrap {
   width: 825px;
   min-height: 1420px;
-  flex-wrap: wrap;
   background-image: url(../img/line-neon-mobile.png);
   background-size: 750px;
   background-position: 34% 50%;
@@ -271,11 +269,11 @@ input[type="radio"].hidden {
 }
 
 .wheel--vertical .wheel__form {
-  padding-top: 85px;
+  padding-top: 40px;
   padding-bottom: 10px;
   padding-left: 95px;
   padding-right: 60px;
-  height: 1413px;
+  height: 1360px;
   width: 715px;
 }
 
@@ -295,7 +293,7 @@ justify-content: space-between;
 .wheel--vertical .wheel__reel {
   order: 1;
   position: absolute;
-  bottom: 172px;
+  bottom: 130px;
   left: 49%;
   transform: translateX(-50%)
 }
@@ -309,4 +307,16 @@ justify-content: space-between;
   margin-left: 215px;
   padding-top: 235px;
   align-self: flex-start;
+}
+
+.wheel--initial {
+
+}
+
+.wheel--confirm {
+
+}
+
+.wheel--result {
+
 }

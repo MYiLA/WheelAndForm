@@ -22,7 +22,7 @@
           <div class="reel__inner reel__inner--logo"></div>
           <div class="reel__inner reel__inner--pointer"></div>
         </div>
-        <p class="wheel__thanks hidden">
+        <p class="wheel__thanks wheel--hidden">
           Спасибо, мы скоро
           свяжемся с вами,
           чтобы
@@ -30,31 +30,31 @@
         </p>
         <form class="wheel__form" method="POST" autocomplete="off">
           <fieldset class="wheel__fieldset">
-            <legend class="hidden">
+            <legend class="wheel--hidden">
               Получите скидку на первый сеанс
             </legend>
             <div class="wheel__fieldset-wrap">
               <p class="wheel__title">
                 Вращайте колесо, чтобы получить скидку на первый сеанс!
               </p>
-              <p class="wheel__booking-text hidden">
+              <p class="wheel__booking-text wheel--hidden">
                 Забронируйте игру
                 в течение 10 минут
               </p>
                 <div class="wheel__authorization">
-                  <label class="hidden" for="form-name" autofocus>
+                  <label class="wheel--hidden" for="wheel-form-name" autofocus>
                     Введите имя
                   </label>
-                  <input class="wheel__input" type="text" id="form-name" name="name" placeholder="Имя"
+                  <input class="wheel__input" type="text" id="wheel-form-name" name="name" placeholder="Имя"
                     pattern="[A-Za-zА-Яа-яЁё]{2,}" />
-                  <label class="hidden" for="form-tel">
+                  <label class="wheel--hidden" for="wheel-form-tel">
                     Введите телефон
                   </label>
-                  <input class="wheel__input" type="tel" id="form-tel" name="tel" placeholder="Телефон"
+                  <input class="wheel__input" type="tel" id="wheel-form-tel" name="tel" placeholder="Телефон"
                     pattern="^(8|\+7)\d{10}$" />
                   <button class="wheel__button" type="button" disabled>Вперёд</button>
                 </div>
-                <input class="hidden wheel__checkbox" type="checkbox" id="wheel-privacy" name="privacy" checked />
+                <input class="wheel--hidden wheel__checkbox" type="checkbox" id="wheel-privacy" name="privacy" checked />
                 <label class="wheel__privacy" for="wheel-privacy">
                   Я согласен с
                   <a class="wheel__privacy-link" href="https://anvio.com/ru-ru/privacy-policy/">
