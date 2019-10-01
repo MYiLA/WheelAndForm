@@ -7,31 +7,51 @@ const contentReel = document.querySelector('.reel__inner--circle-content');
 const nameInput = document.querySelector('.wheel__input[name=name]');
 const phoneInput = document.querySelector('.wheel__input[name=tel]');
 const checkboxInput = document.querySelector('.wheel__checkbox');
-const button = document.querySelector('.wheel__button');
+const continueBtn = document.querySelector('.wheel__button');
+const closeBtn = document.querySelector('.wheel__close');
 
 window.showWheel = (sectors, _cb) => {
   contentReel.innerHTML = getSectorsHtml(sectors);
 
   resizeWheel();
-  window.addEventListener('resize', onResizeHandler);
+  window.addEventListener('resize', resizeHandler);
 
-  nameInput.addEventListener('input', onInputHandler);
-  phoneInput.addEventListener('input', onInputHandler);
-  checkboxInput.addEventListener('input', onInputHandler);
+  nameInput.addEventListener('input', inputHandler);
+  phoneInput.addEventListener('input', inputHandler);
+  checkboxInput.addEventListener('input', inputHandler);
 
-  button.addEventListener('click', () => spin(sectors));
+  continueBtn.addEventListener('click', () => spin(sectors));
+
+  closeBtn.addEventListener('click', hideWheel);
+
+  return hideWheel;
 };
 
 const hideWheel = () => {
-  window.removeEventListener('resize', onResizeHandler);
-}
+  wheel.style.opacity = 0;
 
-const onInputHandler = () => {
-  button.disabled = nameInput.value === '' || phoneInput.value === '' || !checkboxInput.checked;
-}
+  window.removeEventListener('resize', resizeHandler);
+
+  nameInput.removeEventListener('input', inputHandler);
+  phoneInput.removeEventListener('input', inputHandler);
+  checkboxInput.removeEventListener('input', inputHandler);
+
+  continueBtn.removeEventListener('click', spin);
+  closeBtn.removeEventListener('click', hideWheel);
+
+  contentReel.removeEventListener('transitionend', spinStopHandler);
+};
+
+const inputHandler = () => {
+  continueBtn.disabled = nameInput.value === '' || phoneInput.value === '' || !checkboxInput.checked;
+};
+
+const spinStopHandler = () => {
+  continueBtn.disabled = false;
+};
 
 const spin = (sectors) => {
-  button.disabled = true;
+  continueBtn.disabled = true;
 
   const availableSectors = sectors.filter(({ allow }) => allow);
   const resultSector = availableSectors[random(availableSectors.length)];
@@ -43,9 +63,7 @@ const spin = (sectors) => {
   smallReel.style.transform = `rotate(${(4 + Math.random()) * 360}deg)`;
   mediumReel.style.transform = `rotate(-${(4 + Math.random()) * 360}deg)`;
 
-  contentReel.addEventListener('transitionend', () => {
-    button.disabled = false;
-  });
+  contentReel.addEventListener('transitionend', spinStopHandler);
 };
 
 const resizeWheel = () => {
@@ -58,9 +76,9 @@ const resizeWheel = () => {
   const scale = Math.min(1, scaleX, scaleY);
 
   if (vertical) {
-    document.querySelector('.wheel__wrap').classList.add('vertical');
+    wheel.classList.add('vertical');
   } else {
-    document.querySelector('.wheel__wrap').classList.remove('vertical');
+    wheel.classList.remove('vertical');
   }
   wheel.style.fontSize = `${scale}px`;
 };
@@ -90,4 +108,4 @@ const debounce = (func, delay) => {
 
 const random = (max) => Math.floor(Math.random() * max);
 
-const onResizeHandler = debounce(resizeWheel, 150);
+const resizeHandler = debounce(resizeWheel, 150);
