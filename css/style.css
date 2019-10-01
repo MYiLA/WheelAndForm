@@ -49,7 +49,7 @@ input[type="radio"].wheel--hidden {
 
 .wheel__thanks {
   display: block;
-  width: 373px;
+  width: 425px;
   align-self: center;
   margin: 0;
   padding: 0;
@@ -92,7 +92,7 @@ input[type="radio"].wheel--hidden {
   margin-bottom: 25px;
 
   text-align: center;
-   font-size: 30px;
+  font-size: 30px;
   line-height: 38px;
   font-weight: 700;
   color: rgb(255, 255, 255);
@@ -122,7 +122,7 @@ input[type="radio"].wheel--hidden {
   text-align: center;
   padding: 16px;
   border: none;
-  
+
   background-color: rgb(2, 6, 12);
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 26px;
@@ -145,7 +145,7 @@ input[type="radio"].wheel--hidden {
   padding: 15px;
   padding-top: 17px;
   border: none;
-  
+
   outline: none;
   cursor: pointer;
   background-color: rgb(204, 32, 39);
@@ -220,6 +220,20 @@ input[type="radio"].wheel--hidden {
   color: rgb(204, 32, 39)
 }
 
+.wheel__counter {
+  display: block;
+  width: 100%;
+  text-align: center;
+  align-self: flex-end;
+  margin: 0;
+  padding: 0;
+
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+}
+
 .wheel__close {
   align-self: flex-start;
   padding-top: 20px;
@@ -247,10 +261,10 @@ input[type="radio"].wheel--hidden {
 .wheel__booking-text {
   box-sizing: border-box;
   display: block;
-  width: 345px;
+  width: 480px;
   margin: 0 auto;
-  margin-bottom: 60px;
   padding: 0;
+  padding-top: 40px;
 
   text-align: center;
   font-size: 36px;
@@ -260,8 +274,8 @@ input[type="radio"].wheel--hidden {
 }
 
 .wheel--vertical .wheel__wrap {
-  width: 825px;
-  min-height: 1420px;
+  width: 860px;
+  min-height: 1500px;
   background-image: url(../img/line-neon-mobile.png);
   background-size: 750px;
   background-position: 34% 50%;
@@ -273,17 +287,25 @@ input[type="radio"].wheel--hidden {
   padding-bottom: 10px;
   padding-left: 95px;
   padding-right: 60px;
-  height: 1360px;
+  height: 1400px;
   width: 715px;
 }
 
 .wheel--vertical .wheel__fieldset-wrap {
-flex-direction: column;
-justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .wheel--vertical .wheel__title {
+  width: 580px;
   padding-right: 10px;
+  padding-top: 85px;
+  margin-bottom: 45px;
+}
+
+.wheel--vertical .wheel__booking-text {
+  padding-top: 85px;
+  margin-bottom: 40px;
 }
 
 .wheel--vertical .wheel__authorization {
@@ -293,8 +315,8 @@ justify-content: space-between;
 .wheel--vertical .wheel__reel {
   order: 1;
   position: absolute;
-  bottom: 130px;
-  left: 49%;
+  bottom: 170px;
+  left: 48%;
   transform: translateX(-50%)
 }
 
@@ -304,19 +326,124 @@ justify-content: space-between;
 
 .wheel--vertical .wheel__thanks {
   box-sizing: border-box;
-  margin-left: 215px;
-  padding-top: 235px;
+  margin-left: 200px;
+  padding-top: 250px;
   align-self: flex-start;
 }
 
-.wheel--initial {
-
+.wheel--initial .wheel__thanks {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
-.wheel--confirm {
-
+.wheel--initial .wheel__booking-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
-.wheel--result {
+.wheel--initial .wheel__button-take {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
 
+.wheel--initial .wheel__counter {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wheel--confirm .wheel__thanks {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wheel--confirm .wheel__title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wheel--confirm .wheel__button-go {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wheel--confirm .wheel__privacy {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wheel--result .wheel__form {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
