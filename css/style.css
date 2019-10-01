@@ -1,6 +1,6 @@
 .hidden,
-input[type="checkbox"].visually-hidden,
-input[type="radio"].visually-hidden {
+input[type="checkbox"].hidden,
+input[type="radio"].hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -20,7 +20,6 @@ input[type="radio"].visually-hidden {
   bottom: 0;
   left: 0;
   right: 0;
-  margin: auto;
   display: flex;
 
   font-size: 1px;
@@ -62,62 +61,70 @@ input[type="radio"].visually-hidden {
   color: rgb(255, 255, 255);
 }
 
-.wheel__cloze {
-  background-color: rgba(14, 201, 255, 0);
+.wheel__close {
+  background-color: none;
   border: none;
 }
 
 .wheel__fieldset {
   border: none;
+  display: flex;
   padding: 0;
   margin: 0;
+  height: 100%;
+}
+
+.wheel__form {
+  box-sizing: border-box;
+  padding-top: 100px;
+  padding-left: 35px;
+  padding-right: 15px;
+  padding-bottom: 100px;
+  margin-left: 30px;
 }
 
 .wheel__title {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  padding-top: 55px;
+  width: 570px;
+  margin-bottom: 25px;
 
-  font-size: 30px;
+  text-align: center;
+   font-size: 30px;
   line-height: 38px;
   font-weight: 700;
   color: rgb(255, 255, 255);
 }
 
-.wheel__form {
-  box-sizing: border-box;
-  padding-top: 145px;
-  padding-left: 60px;
-  padding-right: 35px;
-  padding-bottom: 100px;
+.wheel__fieldset-wrap {
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
-.wheel__title {
+.wheel__authorization {
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  width: 560px;
-  margin-bottom: 60px;
-
-  text-align: center;
-}
-
-.wheel__autorisation {
-  box-sizing: border-box;
-  width: 400px;
+  width: 450px;
   margin: 0 auto;
-  margin-bottom: 85px;
 }
 
 .wheel__input {
   display: block;
   box-sizing: border-box;
-  width: 100%;
-  margin-bottom: 25px;
+  width: 80%;
+  margin-bottom: 26px;
+  align-self: center;
   text-align: center;
-  padding: 10px;
+  padding: 16px;
   border: none;
   
-  background-color: rgba(14, 201, 255, 0);
+  background-color: rgb(2, 6, 12);
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 26px;
   line-height: 26px;
@@ -136,10 +143,8 @@ input[type="radio"].visually-hidden {
   width: 100%;
   text-align: center;
   margin-top: 10px;
-  padding-top: 14px;
-  padding-bottom: 12px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 15px;
+  padding-top: 17px;
   border: none;
   
   outline: none;
@@ -168,13 +173,14 @@ input[type="radio"].visually-hidden {
 }
 
 .wheel__privacy {
+  align-self: flex-end;
   position: relative;
   display: block;
   box-sizing: border-box;
-  width: 519px;
+  width: 570px;
   padding: 0;
   margin: 0;
-  padding-left: 50px;
+  padding-left: 67px;
 
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 20px;
@@ -195,6 +201,7 @@ input[type="radio"].visually-hidden {
   height: 40px;
   background-color: rgb(119, 122, 127);
   opacity: 1;
+  box-shadow: 0 0 0 12px rgb(4, 9, 12);
 }
 
 .wheel__privacy:focus::before,
@@ -214,25 +221,26 @@ input[type="radio"].visually-hidden {
   color: rgb(204, 32, 39)
 }
 
-.wheel__cloze {
+.wheel__close {
   align-self: flex-start;
   padding-top: 20px;
+  background: none;
 }
 
-.wheel__cloze:focus {
+.wheel__close:focus {
   outline: none;
 }
 
-.wheel__cloze:focus img,
-.wheel__cloze:hover img {
+.wheel__close:focus img,
+.wheel__close:hover img {
   opacity: 0.7;
 }
 
-.wheel__cloze:active img {
+.wheel__close:active img {
   opacity: 0.3;
 }
 
-.wheel__cloze img {
+.wheel__close img {
   align-self: flex-start;
   cursor: pointer;
 }
@@ -262,25 +270,20 @@ input[type="radio"].visually-hidden {
   position: relative;
 }
 
-.vertical .wheel__fieldset {
-  height: 100%;
-}
-.vertical .wheel__fieldset-wrap {
-  height: 97%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
-
 .vertical .wheel__form {
-  padding-top: 110px;
+  padding-top: 60px;
   padding-bottom: 10px;
-  padding-left: 115px;
+  padding-left: 95px;
+  padding-right: 60px;
   height: 1275px;
   width: 715px;
 }
 
-.vertical .wheel__wheel {
+.vertical .wheel__title {
+  padding-right: 10px;
+}
+
+.vertical .wheel__reel {
   order: 1;
   position: absolute;
   bottom: 120px;
@@ -288,15 +291,11 @@ input[type="radio"].visually-hidden {
   transform: translateX(-50%)
 }
 
-.vertical .wheel__autorisation {
+.vertical .wheel__authorization {
   align-self: flex-start;
 }
 
-.vertical .wheel__privacy {
-  align-self: flex-end;
-}
-
-.vertical .wheel__cloze {
+.vertical .wheel__close {
   order: 1;
 }
 

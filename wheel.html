@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:600,700|Montserrat:600,700&display=swap&subset=cyrillic">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:600,700|Montserrat:600,700&display=swap&subset=cyrillic">
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/reel.css" />
 
@@ -29,39 +30,44 @@
         </p>
         <form class="wheel__form" method="POST" autocomplete="off">
           <fieldset class="wheel__fieldset">
-            <legend class="wheel__title">
-              Вращайте колесо, чтобы получить скидку на первый сеанс!
+            <legend class="hidden">
+              Получите скидку на первый сеанс
             </legend>
-            <p class="wheel__booking-text hidden">
-              Забронируйте игру
-              в течение 10 минут
-            </p>
             <div class="wheel__fieldset-wrap">
-              <div class="wheel__autorisation">
-                <label class="hidden" for="form-name" autofocus>
-                  Введите имя
+              <p class="wheel__title">
+                Вращайте колесо, чтобы получить скидку на первый сеанс!
+              </p>
+              <p class="wheel__booking-text hidden">
+                Забронируйте игру
+                в течение 10 минут
+              </p>
+                <div class="wheel__authorization">
+                  <label class="hidden" for="form-name" autofocus>
+                    Введите имя
+                  </label>
+                  <input class="wheel__input" type="text" id="form-name" name="name" placeholder="Имя"
+                    pattern="[A-Za-zА-Яа-яЁё]{2,}" />
+                  <label class="hidden" for="form-tel">
+                    Введите телефон
+                  </label>
+                  <input class="wheel__input" type="tel" id="form-tel" name="tel" placeholder="Телефон"
+                    pattern="^(8|\+7)\d{10}$" />
+                  <button class="wheel__button" type="button" disabled>Вперёд</button>
+                </div>
+                <input class="hidden wheel__checkbox" type="checkbox" id="wheel-privacy" name="privacy" checked />
+                <label class="wheel__privacy" for="wheel-privacy">
+                  Я согласен с
+                  <a class="wheel__privacy-link" href="https://anvio.com/ru-ru/privacy-policy/">
+                    Политикой конфиденциальности
+                  </a>
+                  и подписываюсь на получение рекламной рассылки
                 </label>
-                <input class="wheel__input" type="text" id="form-name" name="name" placeholder="Имя"
-                  pattern="[A-Za-zА-Яа-яЁё]{2,}" />
-                <label class="hidden" for="form-tel">
-                  Введите телефон
-                </label>
-                <input class="wheel__input" type="tel" id="form-tel" name="tel" placeholder="Телефон"
-                  pattern="^(8|\+7)\d{10}$" />
-                <button class="wheel__button" type="button" disabled>Вперёд</button>
-              </div>
-              <input class="hidden wheel__checkbox" type="checkbox" id="wheel-privacy" name="privacy" checked />
-              <label class="wheel__privacy" for="wheel-privacy">
-                Я согласен с
-                <a class="wheel__privacy-link" href="https://anvio.com/ru-ru/privacy-policy/">
-                  Политикой конфиденциальности
-                </a>
-                и подписываюсь на получение рекламной рассылки
-              </label>
+              
             </div>
+
           </fieldset>
         </form>
-        <button class="wheel__cloze" type="button">
+        <button class="wheel__close" type="button">
           <img src="img/btn-close.png" alt="Закрыть окно" />
         </button>
       </div>
@@ -70,7 +76,9 @@
 
   <script src="scripts/wheel.js"></script>
   <script>
-    const reelConfig = Array.from({ length: 11 }, (_, i) => ({
+    const reelConfig = Array.from({
+      length: 11
+    }, (_, i) => ({
       text: `${(i + 1) * 5}%`,
       value: i,
       allow: true,
