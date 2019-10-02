@@ -4,17 +4,22 @@
 
 window.showWheel = (sectors, _cb) => {
   const wheel = document.querySelector('.wheel');
-  const countdown = document.querySelector('.wheel__countdown');
+  const countdown = document.querySelector('.wheel__counter-time');
 
   const smallReel = document.querySelector('.reel__inner--circle-small');
   const mediumReel = document.querySelector('.reel__inner--circle-medium');
   const contentReel = document.querySelector('.reel__inner--circle-content');
+  const resultText = document.querySelector('.reel__result-text');
+  const resultValue = document.querySelector('.reel__result-value');
 
   const nameInput = document.querySelector('.wheel__input[name=name]');
   const phoneInput = document.querySelector('.wheel__input[name=tel]');
   const checkboxInput = document.querySelector('.wheel__checkbox');
   const continueBtn = document.querySelector('.wheel__button');
   const closeBtn = document.querySelector('.wheel__close');
+
+  const availableSectors = sectors.filter(({ allow }) => allow);
+  const resultSector = availableSectors[random(availableSectors.length)];
 
   let countdownIntervalId = null;
 
@@ -52,11 +57,8 @@ window.showWheel = (sectors, _cb) => {
   };
 
   const spin = () => {
-    continueBtn.removeEventListener('click', spin);
     continueBtn.disabled = true;
-  
-    const availableSectors = sectors.filter(({ allow }) => allow);
-    const resultSector = availableSectors[random(availableSectors.length)];
+
     const resultIndex = sectors.indexOf(resultSector);
     const angle = (5 * 360) - ((360 / sectors.length) * resultIndex);
     const randomOffset = 0.8 * (Math.random() - 0.5) * (360 / sectors.length);
@@ -113,8 +115,19 @@ window.showWheel = (sectors, _cb) => {
   };
 
   const spinStopHandler = () => {
-    contentReel.removeEventListener('transitionend', spinStopHandler);
     continueBtn.disabled = false;
+
+    startCountdown();
+  
+    wheel.classList.remove('wheel--initial');
+    wheel.classList.add('wheel--confirm');
+
+    if (isDiscount(resultSector.text)) {
+      resultValue.innerText = resultSector.text;
+    } else {
+      resultText.innerText = resultSector.text;
+      resultValue.hidden = true;
+    }
   };
 
   init();
@@ -122,10 +135,12 @@ window.showWheel = (sectors, _cb) => {
   return hide;
 };
 
+const isDiscount = text => /^[0-9]+\%$/.test(text);
+
 const getSectorsHtml = sectors => sectors
   .map(({ text }, i) => {
     const style = `transform: translateY(-50%) rotate(${(360/12) * i}deg)`;
-    const bigTextClass = /^[0-9]+\%$/.test(text) ? 'reel__sector-text--big' : '';
+    const bigTextClass = isDiscount(text) ? 'reel__sector-text--big' : '';
 
     return (
       `<div class="reel__sector" style="${style}">
