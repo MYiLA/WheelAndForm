@@ -13,7 +13,7 @@
 
 <body>
   <main>
-    <div class="wheel wheel--initial">
+    <div class="wheel wheel--confirm">
       <div class="wheel__wrap">
         <div class="wheel__reel reel">
           <div class="reel__inner reel__inner--circle-small"></div>
@@ -27,10 +27,10 @@
         </p>
         <form class="wheel__form" method="POST" autocomplete="off">
           <div class="wheel__form-wrap">
-            <p class="wheel__title">
+            <p class="wheel__title wheel__title--rotate">
               Вращайте колесо, чтобы получить скидку на первый сеанс!
             </p>
-            <p class="wheel__booking-text">
+            <p class="wheel__title wheel__title--booking">
               Чтобы воспользоваться скидкой, забронируйте игру в течение 10 минут
             </p>
             <div class="wheel__authorization">
@@ -44,9 +44,11 @@
               </label>
               <input class="wheel__input" type="tel" id="wheel-form-tel" name="tel" placeholder="+7 ___ ___ __ __"
                 pattern="^(8|\+7)\d{10}$" />
-              <button class="wheel__button" type="button" disabled>
-                <span class="wheel__button-go">Вперёд!</span>
-                <span class="wheel__button-take">Получить промокод</span>
+              <button class="wheel__button wheel__button--go" type="button" disabled>
+                Вперёд!
+              </button>
+              <button class="wheel__button wheel__button--take" type="submit">
+                Получить промокод
               </button>
             </div>
             <input class="wheel-hidden wheel__checkbox" type="checkbox" id="wheel-privacy" name="privacy" checked />

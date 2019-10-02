@@ -75,7 +75,8 @@
 
 .wheel__title {
   box-sizing: border-box;
-  margin: 0;
+  display: block;
+  margin: 0 auto;
   padding: 0;
   padding-top: 1.6em;
   width: 20em;
@@ -109,7 +110,7 @@
   margin-bottom: 0.7em;
   align-self: center;
   text-align: center;
-  padding: 0.6em;
+  padding: 0.4em;
   border: none;
 
   background-color: rgb(2, 6, 12);
@@ -120,9 +121,9 @@
   color: rgb(255, 255, 255);
   border-radius: 0.45em;
    box-shadow:
-    0 0 0 0.02em rgb(255, 255, 255),
-    0 0 0 0.04em rgba(255, 255, 255, 0.5),
-    0 0 0 0.02em rgba(255, 255, 255, 0.5) inset;
+    0 0 0 0.02em rgba(255, 255, 255,0.7),
+    0 0 0 0.04em rgba(255, 255, 255, 0.4),
+    0 0 0 0.02em rgba(255, 255, 255, 0.4) inset;
 }
 
 .wheel__input:invalid {
@@ -147,8 +148,8 @@
   width: 100%;
   text-align: center;
   margin-top: 0.6em;
-  padding: 0.8em;
-  padding-top: 1em;
+  padding: 0.6em;
+  padding-top: 0.79em;
   border: none;
   border-radius: 0.45em;
 
@@ -212,20 +213,18 @@
   opacity: 1;
 }
 
-.wheel__privacy:focus::before,
-.wheel__privacy:hover::before {
-  opacity: 0.7;
+.wheel__privacy:focus::before {
   outline: none;
-}
-
-.wheel__privacy:active::before {
-  opacity: 0.3;
 }
 
 .wheel__checkbox:checked~.wheel__privacy::before {
   background-image: url(../img/wheel-checkbox.png);
   background-repeat: no-repeat;
   background-position: 50%;
+}
+
+.wheel__checkbox:disabled~.wheel__privacy {
+  opacity: 0.6;
 }
 
 .wheel__privacy-link {
@@ -270,21 +269,6 @@
   opacity: 0.3;
 }
 
-.wheel__booking-text {
-  box-sizing: border-box;
-  display: block;
-  width: 480px;
-  margin: 0 auto;
-  padding: 0;
-  padding-top: 40px;
-
-  text-align: center;
-  font-size: 36px;
-  line-height: 43px;
-  font-weight: 700;
-  color: rgb(255, 255, 255);
-}
-
 .wheel--vertical .wheel__wrap {
   width: 860px;
   min-height: 1500px;
@@ -315,11 +299,6 @@
   margin-bottom: 45px;
 }
 
-.wheel--vertical .wheel__booking-text {
-  padding-top: 85px;
-  margin-bottom: 40px;
-}
-
 .wheel--vertical .wheel__authorization {
   flex-grow: 1;
 }
@@ -330,10 +309,6 @@
   bottom: 170px;
   left: 48%;
   transform: translateX(-50%)
-}
-
-.wheel--vertical .wheel__button {
-  padding-top: 0.8em;
 }
 
 .wheel--vertical .wheel__close {
@@ -353,119 +328,14 @@
   align-self: flex-start;
 }
 
-.wheel--initial .wheel__thanks {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.wheel--initial .wheel__booking-text {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.wheel--initial .wheel__button-take {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.wheel--initial .wheel__counter {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.wheel--confirm .wheel__thanks {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.wheel--confirm .wheel__title {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.wheel--confirm .wheel__button-go {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.wheel--confirm .wheel__privacy {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
+.wheel--initial .wheel__thanks,
+.wheel--initial .wheel__title--booking,
+.wheel--initial .wheel__button--take,
+.wheel--initial .wheel__counter,
+.wheel--confirm .wheel__thanks,
+.wheel--confirm .wheel__title--rotate,
+.wheel--confirm .wheel__button--go,
+.wheel--confirm .wheel__privacy,
 .wheel--result .wheel__form {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+display: none;
 }
