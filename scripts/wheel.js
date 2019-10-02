@@ -155,7 +155,7 @@ window.showWheel = (sectors, callback) => {
   return hide;
 };
 
-const isDiscount = text => /^[0-9]+\%$/.test(text);
+const isDiscount = text => /^\d\%$/.test(text);
 
 const getSectorsHtml = sectors => sectors
   .map(({ text }, i) => {
