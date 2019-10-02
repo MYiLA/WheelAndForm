@@ -93,9 +93,9 @@ window.showWheel = (sectors, _cb) => {
     const scale = Math.min(1, scaleX, scaleY);
   
     if (vertical) {
-      wheel.classList.add('vertical');
+      wheel.classList.add('wheel--vertical');
     } else {
-      wheel.classList.remove('vertical');
+      wheel.classList.remove('wheel--vertical');
     }
     wheel.style.fontSize = `${scale}px`;
   };
