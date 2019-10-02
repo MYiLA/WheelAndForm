@@ -1,6 +1,4 @@
-.hidden,
-input[type="checkbox"].hidden,
-input[type="radio"].hidden {
+.wheel-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -33,7 +31,7 @@ input[type="radio"].hidden {
 
 .wheel__wrap {
   box-sizing: border-box;
-  width: 1520px;
+  width: 1520em;
   display: flex;
   justify-content: space-between;
   margin: auto;
@@ -41,7 +39,7 @@ input[type="radio"].hidden {
   background-image: url(../img/line-neon-desctop.png);
   background-repeat: no-repeat;
   background-position: 82% 86%;
-  background-size: 1080px;
+  background-size: 1080em;
 }
 
 .wheel__reel {
@@ -50,13 +48,13 @@ input[type="radio"].hidden {
 
 .wheel__thanks {
   display: block;
-  width: 373px;
+  width: 425em;
   align-self: center;
   margin: 0;
   padding: 0;
 
-  font-size: 36px;
-  line-height: 43px;
+  font-size: 36em;
+  line-height: 43em;
   font-weight: 700;
   text-align: center;
   color: rgb(255, 255, 255);
@@ -67,41 +65,31 @@ input[type="radio"].hidden {
   border: none;
 }
 
-.wheel__fieldset {
-  border: none;
-  display: flex;
-  padding: 0;
-  margin: 0;
-  height: 100%;
-}
-
 .wheel__form {
   box-sizing: border-box;
-  padding-top: 100px;
-  padding-left: 35px;
-  padding-right: 15px;
-  padding-bottom: 100px;
-  margin-left: 30px;
+  padding-top: 100em;
+  padding-left: 35em;
+  padding-right: 15em;
+  padding-bottom: 105em;
+  margin-left: 30em;
 }
 
 .wheel__title {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  padding-top: 55px;
-  width: 570px;
-  margin-bottom: 25px;
+  padding-top: 1.6em;
+  width: 20em;
 
   text-align: center;
-   font-size: 30px;
-  line-height: 38px;
+  font-size: 30em;
+  line-height: 1.28em;
   font-weight: 700;
   color: rgb(255, 255, 255);
 }
 
-.wheel__fieldset-wrap {
+.wheel__form-wrap {
   height: 100%;
-  flex-grow: 1;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -111,31 +99,47 @@ input[type="radio"].hidden {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  width: 450px;
+  width: 450em;
   margin: 0 auto;
 }
 
 .wheel__input {
   display: block;
   box-sizing: border-box;
-  width: 80%;
-  margin-bottom: 26px;
+  width: 100%;
+  margin-bottom: 0.7em;
   align-self: center;
   text-align: center;
-  padding: 16px;
+  padding: 0.6em;
   border: none;
-  
+
   background-color: rgb(2, 6, 12);
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 26px;
-  line-height: 26px;
-  font-weight: 700;
+  font-size: 27em;
+  line-height: 1.35em;
+  font-weight: 400;
   color: rgb(255, 255, 255);
+  border-radius: 0.45em;
+   box-shadow:
+    0 0 0 0.02em rgb(255, 255, 255),
+    0 0 0 0.04em rgba(255, 255, 255, 0.5),
+    0 0 0 0.02em rgba(255, 255, 255, 0.5) inset;
+}
+
+.wheel__input:invalid {
+  box-shadow:
+    0 0 0 0.02em rgb(167, 26, 31),
+    0 0 0 0.04em rgba(167, 26, 31, 0.6),
+    0 0 0 0.02em rgba(167, 26, 31, 0.6) inset;
+}
+
+.wheel__input:focus {
+  outline: none;
 }
 
 .wheel__input::placeholder {
-  font-size: 30px;
-  line-height: 38px;
+  font-size: 1em;
+  line-height: 1.5em;
   color: rgb(255, 255, 255);
 }
 
@@ -143,17 +147,18 @@ input[type="radio"].hidden {
   box-sizing: border-box;
   width: 100%;
   text-align: center;
-  margin-top: 10px;
-  padding: 15px;
-  padding-top: 17px;
+  margin-top: 0.6em;
+  padding: 0.8em;
+  padding-top: 1em;
   border: none;
-  
+  border-radius: 0.45em;
+
   outline: none;
   cursor: pointer;
   background-color: rgb(204, 32, 39);
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 24px;
+  font-weight: 400;
+  font-size: 24em;
+  line-height: 1em;
   text-transform: uppercase;
   color: rgb(255, 255, 255);
 }
@@ -169,8 +174,9 @@ input[type="radio"].hidden {
 
 .wheel__button:disabled {
   opacity: 1;
-  background-color: rgb(119, 122, 127);
+  background-color: rgb(86, 86, 86);
   cursor: default;
+  color: rgb(145, 145, 145);
 }
 
 .wheel__privacy {
@@ -178,18 +184,20 @@ input[type="radio"].hidden {
   position: relative;
   display: block;
   box-sizing: border-box;
-  width: 570px;
+  width: 560px;
   padding: 0;
-  margin: 0;
-  padding-left: 67px;
+  margin: 0 auto;
+  padding-left: 60px;
 
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 20px;
   line-height: 24px;
-  font-weight: 700;
+  font-weight: 400;
   text-align: left;
   color: rgb(255, 255, 255);
   cursor: pointer;
+  background-color: rgb(4, 9, 12);
+  box-shadow: -5px 0 0 12px rgb(4, 9, 12);
 }
 
 .wheel__privacy::before {
@@ -200,14 +208,15 @@ input[type="radio"].hidden {
   transform: translateY(-50%);
   width: 40px;
   height: 40px;
-  background-color: rgb(119, 122, 127);
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
   opacity: 1;
-  box-shadow: 0 0 0 12px rgb(4, 9, 12);
 }
 
 .wheel__privacy:focus::before,
 .wheel__privacy:hover::before {
   opacity: 0.7;
+  outline: none;
 }
 
 .wheel__privacy:active::before {
@@ -215,44 +224,60 @@ input[type="radio"].hidden {
 }
 
 .wheel__checkbox:checked~.wheel__privacy::before {
-  background-color: rgb(191, 233, 255);
+  background-image: url(../img/wheel-checkbox.png);
+  background-repeat: no-repeat;
+  background-position: 50%;
 }
 
 .wheel__privacy-link {
   color: rgb(204, 32, 39)
 }
 
+.wheel__counter {
+  display: block;
+  width: 100%;
+  text-align: center;
+  align-self: flex-end;
+  margin: 0;
+  padding: 0;
+
+  font-size: 40px;
+  line-height: 38px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+}
+
 .wheel__close {
+  width: 85px;
+  height: 85px;
   align-self: flex-start;
+  flex-shrink: 0;
   padding-top: 20px;
+  margin-top: 35px;
   background: none;
+  background-image: url(../img/btn-close.png);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  cursor: pointer;
 }
 
-.wheel__close:focus {
+.wheel__close:focus,
+.wheel__close:hover {
   outline: none;
-}
-
-.wheel__close:focus img,
-.wheel__close:hover img {
   opacity: 0.7;
 }
 
-.wheel__close:active img {
+.wheel__close:active {
   opacity: 0.3;
-}
-
-.wheel__close img {
-  align-self: flex-start;
-  cursor: pointer;
 }
 
 .wheel__booking-text {
   box-sizing: border-box;
   display: block;
-  width: 345px;
+  width: 480px;
   margin: 0 auto;
-  margin-bottom: 60px;
   padding: 0;
+  padding-top: 40px;
 
   text-align: center;
   font-size: 36px;
@@ -261,48 +286,187 @@ input[type="radio"].hidden {
   color: rgb(255, 255, 255);
 }
 
-.vertical {
-  width: 825px;
-  min-height: 1420px;
-  flex-wrap: wrap;
+.wheel--vertical .wheel__wrap {
+  width: 860px;
+  min-height: 1500px;
   background-image: url(../img/line-neon-mobile.png);
-  background-size: 715px;
+  background-size: 750px;
   background-position: 34% 50%;
   position: relative;
 }
 
-.vertical .wheel__form {
-  padding-top: 60px;
+.wheel--vertical .wheel__form {
+  padding-top: 40px;
   padding-bottom: 10px;
   padding-left: 95px;
   padding-right: 60px;
-  height: 1275px;
+  height: 1400px;
   width: 715px;
 }
 
-.vertical .wheel__title {
-  padding-right: 10px;
+.wheel--vertical .wheel__form-wrap {
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.vertical .wheel__reel {
+.wheel--vertical .wheel__title {
+  width: 580px;
+  padding-right: 10px;
+  padding-top: 85px;
+  margin-bottom: 45px;
+}
+
+.wheel--vertical .wheel__booking-text {
+  padding-top: 85px;
+  margin-bottom: 40px;
+}
+
+.wheel--vertical .wheel__authorization {
+  flex-grow: 1;
+}
+
+.wheel--vertical .wheel__reel {
   order: 1;
   position: absolute;
-  bottom: 120px;
+  bottom: 170px;
   left: 48%;
   transform: translateX(-50%)
 }
 
-.vertical .wheel__authorization {
-  align-self: flex-start;
+.wheel--vertical .wheel__button {
+  padding-top: 0.8em;
 }
 
-.vertical .wheel__close {
+.wheel--vertical .wheel__close {
   order: 1;
+  margin-right: 10px;
 }
 
-.vertical .wheel__thanks {
+.wheel--vertical .wheel__thanks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   box-sizing: border-box;
-  margin-left: 215px;
-  padding-top: 235px;
+  
+  height: 580px;
+  padding-top: 100px;
+  margin-left: 200px;
   align-self: flex-start;
+}
+
+.wheel--initial .wheel__thanks {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wheel--initial .wheel__booking-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wheel--initial .wheel__button-take {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wheel--initial .wheel__counter {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wheel--confirm .wheel__thanks {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wheel--confirm .wheel__title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wheel--confirm .wheel__button-go {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wheel--confirm .wheel__privacy {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.wheel--result .wheel__form {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
