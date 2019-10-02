@@ -61,7 +61,7 @@
               </a>
               <br>и подписываюсь на получение рекламной рассылки
             </label>
-            <p class="wheel__counter">Осталось: <span class="wheel__counter-time">10:00</span></p>
+            <p class="wheel__counter">Осталось <span class="wheel__counter-time">10:00</span></p>
           </div>
         </form>
         <button class="wheel__close" type="button"></button>
@@ -71,7 +71,7 @@
 
   <script src="scripts/wheel.js"></script>
   <script>
-    const reelConfig = Array.from({
+    const config = Array.from({
       length: 11
     }, (_, i) => ({
       text: `${(i + 1) * 5}%`,
@@ -82,8 +82,9 @@
       value: -1,
       allow: false,
     });
+    const callback = result => alert(JSON.stringify(result));
 
-    window.showWheel(reelConfig);
+    window.showWheel(config, callback);
   </script>
 </body>
 
