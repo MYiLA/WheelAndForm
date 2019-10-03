@@ -70,7 +70,7 @@
 .wheel__form {
   box-sizing: border-box;
   padding-top: 100em;
-  padding-left: 35em;
+  padding-left: 6em;
   padding-right: 15em;
   padding-bottom: 105em;
   margin-left: 30em;
@@ -94,9 +94,9 @@
 .wheel__form-wrap {
   height: 100%;
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-}
+  flex-direction: column;
+  justify-content: space-between;
+} 
 
 .wheel__authorization {
   display: flex;
@@ -122,7 +122,7 @@
   line-height: 1.35em;
   font-weight: 400;
   color: rgb(255, 255, 255);
-  border-radius: 0.45em;
+  border-radius: 0.4em;
   box-shadow:
     0 0 0 0.02em rgba(255, 255, 255, 0.7),
     0 0 0 0.04em rgba(255, 255, 255, 0.4),
@@ -187,9 +187,10 @@
   position: relative;
   display: block;
   box-sizing: border-box;
-  width: 28.3em;
+  width: 28em;
   padding: 0;
   margin: 0 auto;
+  margin-bottom: 0.5em;
   padding-left: 2.8em;
 
   font-family: 'IBM Plex Sans', sans-serif;
@@ -209,8 +210,8 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 2.15em;
-  height: 2.15em;
+  width: 2em;
+  height: 2em;
   background-color: rgb(255, 255, 255);
   border-radius: 0.45em;
   opacity: 1;
@@ -224,6 +225,7 @@
   background-image: url(../img/wheel-checkbox.png);
   background-repeat: no-repeat;
   background-position: 50%;
+  background-size: 1.5em;
 }
 
 .wheel__checkbox:disabled~.wheel__privacy {
@@ -250,9 +252,11 @@
 .wheel__counter {
   display: block;
   width: 100%;
+  min-height: 1.486em;
   text-align: center;
   align-self: flex-end;
   margin: 0;
+  margin-bottom: 0.286em;
   padding: 0;
 
   font-size: 35em;
@@ -293,15 +297,15 @@
 .wheel--vertical .wheel__wrap {
   position: relative;
   width: 860em;
-  min-height: 1500em;
+  min-height: 1400em;
   background-image: url(../img/wheel-background-vertical.png);
   background-size: 750em;
   background-position: 34% 50%;
 }
 
 .wheel--vertical .wheel__form {
-  padding-top: 40em;
-  padding-bottom: 10em;
+  padding-top: 75em;
+  padding-bottom: 60em;
   padding-left: 95em;
   padding-right: 60em;
   height: 1400em;
@@ -315,8 +319,8 @@
 
 .wheel--vertical .wheel__title {
   width: 19.35em;
+  padding-top: 0;
   padding-right: 0.35em;
-  padding-top: 2.65em;
   margin-bottom: 1.5em;
 }
 
@@ -324,10 +328,15 @@
   flex-grow: 1;
 }
 
+.wheel--vertical .wheel__privacy {
+  margin-bottom: 0;
+  box-shadow: -0.3em 0 0 0.4em rgb(4, 9, 12);
+}
+
 .wheel--vertical .wheel__reel {
   order: 1;
   position: absolute;
-  bottom: 170em;
+  bottom: 120em;
   left: 48%;
   transform: translateX(-50%)
 }
