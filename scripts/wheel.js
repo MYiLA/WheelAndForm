@@ -129,8 +129,8 @@ window.showWheel = (sectors, callback) => {
 
   const resize = () => {
     const vertical = window.innerWidth < window.innerHeight;
-    const defaultWidth = vertical ? 800 : 800;
-    const defaultHeigth = vertical ? 800 : 800;
+    const defaultWidth = vertical ? 800 : (1520 + 40);
+    const defaultHeigth = vertical ? 800 : 756;
 
     const scaleX = window.innerWidth / defaultWidth;
     const scaleY = window.innerHeight / defaultHeigth;

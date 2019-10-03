@@ -34,8 +34,8 @@
 }
 
 .wheel__wrap {
-  box-sizing: border-box;
   width: 1520em;
+  height: 756em;
   display: flex;
   justify-content: space-between;
   margin: auto;
@@ -264,10 +264,11 @@
 .wheel__close {
   width: 87em;
   height: 87em;
+  padding: 0;
   align-self: flex-start;
   flex-shrink: 0;
-  padding-top: 1.15em;
-  margin-top: 2.46em;
+  margin-top: 26em;
+  margin-left: 2px;
 
   font-size: inherit;
   border: none;
@@ -275,6 +276,7 @@
   background-image: url(../img/wheel-btn-close.png);
   background-repeat: no-repeat;
   background-position: 50%;
+  background-size: 100%;
   cursor: pointer;
 }
 
@@ -289,12 +291,12 @@
 }
 
 .wheel--vertical .wheel__wrap {
+  position: relative;
   width: 860em;
   min-height: 1500em;
   background-image: url(../img/wheel-background-vertical.png);
   background-size: 750em;
   background-position: 34% 50%;
-  position: relative;
 }
 
 .wheel--vertical .wheel__form {
