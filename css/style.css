@@ -330,7 +330,13 @@
 
 .wheel--vertical .wheel__privacy {
   margin-bottom: 0;
+  margin-right: -0.67em;
   box-shadow: -0.3em 0 0 0.4em rgb(4, 9, 12);
+}
+
+.wheel--vertical .wheel__counter {
+  margin-bottom: 0;
+  margin-top: 0.286em;
 }
 
 .wheel--vertical .wheel__reel {
