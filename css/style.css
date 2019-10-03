@@ -19,18 +19,23 @@
   left: 0;
   right: 0;
   display: flex;
+  opacity: 0;
 
   font-size: 1px;
   font-family: 'Montserrat', sans-serif;
   background-color: rgba(4, 4, 19, 0.89);
-  transition: font-size 1s;
+  transition: font-size 1s, opacity 0.5s;
 
   /* transform: translateZ(0); */
 }
 
+.wheel--visible {
+  opacity: 1;
+}
+
 .wheel__wrap {
-  box-sizing: border-box;
   width: 1520em;
+  height: 756em;
   display: flex;
   justify-content: space-between;
   margin: auto;
@@ -60,11 +65,6 @@
 
 .wheel__thanks-text {
   font-size: 36em;
-}
-
-.wheel__close {
-  background-color: none;
-  border: none;
 }
 
 .wheel__form {
@@ -262,16 +262,21 @@
 }
 
 .wheel__close {
-  width: 5em;
-  height: 5em;
+  width: 87em;
+  height: 87em;
+  padding: 0;
   align-self: flex-start;
   flex-shrink: 0;
-  padding-top: 1.15em;
-  margin-top: 2.46em;
+  margin-top: 26em;
+  margin-left: 2px;
+
+  font-size: inherit;
+  border: none;
   background: none;
   background-image: url(../img/wheel-btn-close.png);
   background-repeat: no-repeat;
   background-position: 50%;
+  background-size: 100%;
   cursor: pointer;
 }
 
@@ -286,12 +291,12 @@
 }
 
 .wheel--vertical .wheel__wrap {
+  position: relative;
   width: 860em;
   min-height: 1500em;
   background-image: url(../img/wheel-background-vertical.png);
   background-size: 750em;
   background-position: 34% 50%;
-  position: relative;
 }
 
 .wheel--vertical .wheel__form {
@@ -328,10 +333,7 @@
 }
 
 .wheel--vertical .wheel__close {
-  width: 6em;
-  height: 6em;
   order: 1;
-  margin-right: 0.55em;
 }
 
 .wheel--vertical .wheel__thanks {
@@ -347,12 +349,12 @@
 }
 
 .wheel--initial .wheel__thanks,
-.wheel--initial .wheel__title--booking,
-.wheel--initial .wheel__button--take,
+.wheel--initial .wheel__title--confirm,
+.wheel--initial .wheel__button--confirm,
 .wheel--initial .wheel__counter,
 .wheel--confirm .wheel__thanks,
-.wheel--confirm .wheel__title--rotate,
-.wheel--confirm .wheel__button--go,
+.wheel--confirm .wheel__title--initial,
+.wheel--confirm .wheel__button--spin,
 .wheel--confirm .wheel__privacy,
 .wheel--result .wheel__form {
   display: none;
