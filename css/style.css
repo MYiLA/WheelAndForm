@@ -36,7 +36,7 @@
   justify-content: space-between;
   margin: auto;
 
-  background-image: url(../img/line-neon-desctop.png);
+  background-image: url(../img/wheel-background-horizontal.png);
   background-repeat: no-repeat;
   background-position: 82% 86%;
   background-size: 1080em;
@@ -53,11 +53,14 @@
   margin: 0;
   padding: 0;
 
-  font-size: 36em;
   line-height: 43em;
   font-weight: 700;
   text-align: center;
   color: rgb(255, 255, 255);
+}
+
+.wheel__thanks-text {
+  font-size: 36em;
 }
 
 .wheel__close {
@@ -76,7 +79,8 @@
 
 .wheel__title {
   box-sizing: border-box;
-  margin: 0;
+  display: block;
+  margin: 0 auto;
   padding: 0;
   padding-top: 1.6em;
   width: 20em;
@@ -110,7 +114,7 @@
   margin-bottom: 0.7em;
   align-self: center;
   text-align: center;
-  padding: 0.6em;
+  padding: 0.4em;
   border: none;
 
   background-color: rgb(2, 6, 12);
@@ -120,13 +124,13 @@
   font-weight: 400;
   color: rgb(255, 255, 255);
   border-radius: 0.45em;
-   box-shadow:
-    0 0 0 0.02em rgb(255, 255, 255),
-    0 0 0 0.04em rgba(255, 255, 255, 0.5),
-    0 0 0 0.02em rgba(255, 255, 255, 0.5) inset;
+  box-shadow:
+    0 0 0 0.02em rgba(255, 255, 255, 0.7),
+    0 0 0 0.04em rgba(255, 255, 255, 0.4),
+    0 0 0 0.02em rgba(255, 255, 255, 0.4) inset;
 }
 
-.wheel__input:invalid {
+.wheel__input--invalid {
   box-shadow:
     0 0 0 0.02em rgb(167, 26, 31),
     0 0 0 0.04em rgba(167, 26, 31, 0.6),
@@ -148,8 +152,8 @@
   width: 100%;
   text-align: center;
   margin-top: 0.6em;
-  padding: 0.8em;
-  padding-top: 1em;
+  padding: 0.6em;
+  padding-top: 0.79em;
   border: none;
   border-radius: 0.45em;
 
@@ -184,20 +188,20 @@
   position: relative;
   display: block;
   box-sizing: border-box;
-  width: 560px;
+  width: 28.3em;
   padding: 0;
   margin: 0 auto;
-  padding-left: 60px;
+  padding-left: 2.8em;
 
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 20em;
+  line-height: 1.3em;
   font-weight: 400;
   text-align: left;
   color: rgb(255, 255, 255);
   cursor: pointer;
   background-color: rgb(4, 9, 12);
-  box-shadow: -5px 0 0 12px rgb(4, 9, 12);
+  box-shadow: -0.1em 0 0 1em rgb(4, 9, 12);
 }
 
 .wheel__privacy::before {
@@ -206,21 +210,15 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
+  width: 2.15em;
+  height: 2.15em;
   background-color: rgb(255, 255, 255);
-  border-radius: 5px;
+  border-radius: 0.45em;
   opacity: 1;
 }
 
-.wheel__privacy:focus::before,
-.wheel__privacy:hover::before {
-  opacity: 0.7;
+.wheel__privacy:focus::before {
   outline: none;
-}
-
-.wheel__privacy:active::before {
-  opacity: 0.3;
 }
 
 .wheel__checkbox:checked~.wheel__privacy::before {
@@ -229,8 +227,25 @@
   background-position: 50%;
 }
 
+.wheel__checkbox:disabled~.wheel__privacy {
+  opacity: 0.6;
+}
+
 .wheel__privacy-link {
-  color: rgb(204, 32, 39)
+  text-decoration: none;
+  color: rgb(204, 32, 39);
+  position: relative;
+}
+
+.wheel__privacy-link::after {
+   content: '';
+  position: absolute;
+  height: 0.05em;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: rgb(204, 32, 39);
+  box-shadow: 0 -0.05em 0 0.02em rgba(204, 32, 39, 0.3);
 }
 
 .wheel__counter {
@@ -241,21 +256,21 @@
   margin: 0;
   padding: 0;
 
-  font-size: 40px;
-  line-height: 38px;
+  font-size: 35em;
+  line-height: 0.5em;
   font-weight: 700;
   color: rgb(255, 255, 255);
 }
 
 .wheel__close {
-  width: 85px;
-  height: 85px;
+  width: 5em;
+  height: 5em;
   align-self: flex-start;
   flex-shrink: 0;
-  padding-top: 20px;
-  margin-top: 35px;
+  padding-top: 1.15em;
+  margin-top: 2.46em;
   background: none;
-  background-image: url(../img/btn-close.png);
+  background-image: url(../img/wheel-btn-close.png);
   background-repeat: no-repeat;
   background-position: 50%;
   cursor: pointer;
@@ -271,37 +286,22 @@
   opacity: 0.3;
 }
 
-.wheel__booking-text {
-  box-sizing: border-box;
-  display: block;
-  width: 480px;
-  margin: 0 auto;
-  padding: 0;
-  padding-top: 40px;
-
-  text-align: center;
-  font-size: 36px;
-  line-height: 43px;
-  font-weight: 700;
-  color: rgb(255, 255, 255);
-}
-
 .wheel--vertical .wheel__wrap {
-  width: 860px;
-  min-height: 1500px;
-  background-image: url(../img/line-neon-mobile.png);
-  background-size: 750px;
+  width: 860em;
+  min-height: 1500em;
+  background-image: url(../img/wheel-background-vertical.png);
+  background-size: 750em;
   background-position: 34% 50%;
   position: relative;
 }
 
 .wheel--vertical .wheel__form {
-  padding-top: 40px;
-  padding-bottom: 10px;
-  padding-left: 95px;
-  padding-right: 60px;
-  height: 1400px;
-  width: 715px;
+  padding-top: 40em;
+  padding-bottom: 10em;
+  padding-left: 95em;
+  padding-right: 60em;
+  height: 1400em;
+  width: 715em;
 }
 
 .wheel--vertical .wheel__form-wrap {
@@ -310,15 +310,10 @@
 }
 
 .wheel--vertical .wheel__title {
-  width: 580px;
-  padding-right: 10px;
-  padding-top: 85px;
-  margin-bottom: 45px;
-}
-
-.wheel--vertical .wheel__booking-text {
-  padding-top: 85px;
-  margin-bottom: 40px;
+  width: 19.35em;
+  padding-right: 0.35em;
+  padding-top: 2.65em;
+  margin-bottom: 1.5em;
 }
 
 .wheel--vertical .wheel__authorization {
@@ -328,18 +323,16 @@
 .wheel--vertical .wheel__reel {
   order: 1;
   position: absolute;
-  bottom: 170px;
+  bottom: 170em;
   left: 48%;
   transform: translateX(-50%)
 }
 
-.wheel--vertical .wheel__button {
-  padding-top: 0.8em;
-}
-
 .wheel--vertical .wheel__close {
+  width: 6em;
+  height: 6em;
   order: 1;
-  margin-right: 10px;
+  margin-right: 0.55em;
 }
 
 .wheel--vertical .wheel__thanks {
@@ -347,126 +340,21 @@
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-  
-  height: 580px;
-  padding-top: 100px;
-  margin-left: 200px;
+
+  height: 580em;
+  padding-top: 100em;
+  margin-left: 200em;
   align-self: flex-start;
 }
 
-.wheel--initial .wheel__thanks {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.wheel--initial .wheel__booking-text {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.wheel--initial .wheel__button-take {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.wheel--initial .wheel__counter {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.wheel--confirm .wheel__thanks {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.wheel--confirm .wheel__title {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.wheel--confirm .wheel__button-go {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.wheel--confirm .wheel__privacy {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
+.wheel--initial .wheel__thanks,
+.wheel--initial .wheel__title--booking,
+.wheel--initial .wheel__button--take,
+.wheel--initial .wheel__counter,
+.wheel--confirm .wheel__thanks,
+.wheel--confirm .wheel__title--rotate,
+.wheel--confirm .wheel__button--go,
+.wheel--confirm .wheel__privacy,
 .wheel--result .wheel__form {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+  display: none;
 }
