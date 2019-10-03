@@ -129,8 +129,10 @@ window.showWheel = (sectors, callback) => {
 
   const resize = () => {
     const vertical = window.innerWidth < window.innerHeight;
-    const defaultWidth = vertical ? 900 : (1520 + 40);
-    const defaultHeigth = vertical ? 1500 : 756;
+
+    // значения после + это хак для отступов от края экрана
+    const defaultWidth = vertical ? (860 + 20) : (1520 + 40);
+    const defaultHeigth = vertical ? (1400 + 40) : 756;
 
     const scaleX = window.innerWidth / defaultWidth;
     const scaleY = window.innerHeight / defaultHeigth;
