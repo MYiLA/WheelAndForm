@@ -29,6 +29,10 @@
   /* transform: translateZ(0); */
 }
 
+.wheel--visible {
+  opacity: 1;
+}
+
 .wheel__wrap {
   box-sizing: border-box;
   width: 1520em;

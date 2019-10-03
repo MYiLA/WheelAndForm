@@ -28,7 +28,7 @@ window.showWheel = (sectors, callback) => {
   let hideTimeoutId = null;
 
   const init = () => {
-    wheel.style.opacity = 1;
+    wheel.classList.add('wheel--visible');
 
     sectorsContainer.innerHTML = getSectorsHtml(sectors);
 
@@ -45,7 +45,7 @@ window.showWheel = (sectors, callback) => {
   };
 
   const hide = () => {
-    wheel.style.opacity = 0;
+    wheel.classList.remove('wheel--visible');
 
     clearTimeout(hideTimeoutId);
     clearInterval(countdownIntervalId);
@@ -78,6 +78,38 @@ window.showWheel = (sectors, callback) => {
     mediumReel.style.transform = `rotate(-${(4 + Math.random()) * 360}deg)`;
 
     contentReel.addEventListener('transitionend', spinStopHandler);
+  };
+
+  const spinStopHandler = () => {
+    contentReel.removeEventListener('transitionend', spinStopHandler);
+
+    startCountdown();
+
+    wheel.classList.remove('wheel--initial');
+    wheel.classList.add('wheel--confirm');
+
+    if (isDiscount(resultSector.text)) {
+      resultValue.innerText = resultSector.text;
+    } else {
+      resultText.innerText = resultSector.text;
+      resultValue.hidden = true;
+    }
+
+    confirmBtn.addEventListener('click', confirm);
+  };
+
+  const confirm = () => {
+    confirmBtn.removeEventListener('click', confirm);
+    wheel.classList.remove('wheel--confirm');
+    wheel.classList.add('wheel--result');
+
+    callback({
+      name: nameInput.value,
+      phone: phoneInput.value,
+      value: resultSector.value,
+    });
+
+    hideTimeoutId = setTimeout(hide, 3000);
   };
 
   const startCountdown = () => {
@@ -124,38 +156,6 @@ window.showWheel = (sectors, callback) => {
     }
 
     spinBtn.disabled = nameInput.value === '' || phoneInput.value === '' || !checkboxInput.checked;
-  };
-
-  const spinStopHandler = () => {
-    contentReel.removeEventListener('transitionend', spinStopHandler);
-
-    startCountdown();
-
-    wheel.classList.remove('wheel--initial');
-    wheel.classList.add('wheel--confirm');
-
-    if (isDiscount(resultSector.text)) {
-      resultValue.innerText = resultSector.text;
-    } else {
-      resultText.innerText = resultSector.text;
-      resultValue.hidden = true;
-    }
-
-    confirmBtn.addEventListener('click', confirm);
-  };
-
-  const confirm = () => {
-    confirmBtn.removeEventListener('click', confirm);
-    wheel.classList.remove('wheel--confirm');
-    wheel.classList.add('wheel--result');
-
-    callback({
-      name: nameInput.value,
-      phone: phoneInput.value,
-      value: resultSector.value,
-    });
-
-    hideTimeoutId = setTimeout(hide, 3000);
   };
 
   init();
