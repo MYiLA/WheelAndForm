@@ -348,6 +348,7 @@
 }
 
 .wheel--vertical .wheel__close {
+  margin-top: 0;
   order: 1;
 }
 
