@@ -14,7 +14,7 @@ window.showWheel = (sectors, callback) => {
   const resultValue = document.querySelector('.reel__result-value');
 
   const form = document.querySelector('.wheel__form');
-  const nameInput = document.querySelector('.wheel__input[name=name]');
+  const nameInput = document.querySelector('.wheel__input[name=username]');
   const phoneInput = document.querySelector('.wheel__input[name=tel]');
   const checkboxInput = document.querySelector('.wheel__checkbox');
   const spinBtn = document.querySelector('.wheel__button--spin');
@@ -129,8 +129,10 @@ window.showWheel = (sectors, callback) => {
 
   const resize = () => {
     const vertical = window.innerWidth < window.innerHeight;
-    const defaultWidth = vertical ? 900 : (1520 + 40);
-    const defaultHeigth = vertical ? 1500 : 756;
+
+    // значения после + это хак для отступов от края экрана
+    const defaultWidth = vertical ? (860 + 30) : (1520 + 40);
+    const defaultHeigth = vertical ? (1400 + 40) : 756;
 
     const scaleX = window.innerWidth / defaultWidth;
     const scaleY = window.innerHeight / defaultHeigth;

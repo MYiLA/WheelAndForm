@@ -47,7 +47,7 @@
 
   background-image: url(../img/reel-pointer.png);
   transform-origin: -296em 50%;
-  transition: transform 1s;
+  transition: none;
 }
 
 .reel__inner--logo {
@@ -100,7 +100,6 @@
 .reel__content {
   width: 100%;
   height: 100%;
-  transition: transform 1s;
 }
 
 .reel__sector {
