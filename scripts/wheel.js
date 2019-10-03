@@ -128,6 +128,10 @@ window.showWheel = (sectors, callback) => {
   };
 
   const resize = () => {
+    if ([nameInput, phoneInput].includes(document.activeElement)) {
+      return;
+    }
+
     const vertical = window.innerWidth < window.innerHeight;
 
     // значения после + это хак для отступов от края экрана
