@@ -123,17 +123,11 @@
   font-weight: 400;
   color: rgb(255, 255, 255);
   border-radius: 0.4em;
-  box-shadow:
-    0 0 0 0.02em rgba(255, 255, 255, 0.7),
-    0 0 0 0.04em rgba(255, 255, 255, 0.4),
-    0 0 0 0.02em rgba(255, 255, 255, 0.4) inset;
+  box-shadow: 0 0 1px 0 rgb(255, 255, 255);
 }
 
 .wheel__input--invalid {
-  box-shadow:
-    0 0 0 0.02em rgb(167, 26, 31),
-    0 0 0 0.04em rgba(167, 26, 31, 0.6),
-    0 0 0 0.02em rgba(167, 26, 31, 0.6) inset;
+  box-shadow: 0 0 1px 0 rgb(167, 26, 31);
 }
 
 .wheel__input:focus {
@@ -144,6 +138,7 @@
   font-size: 1em;
   line-height: 1.5em;
   color: rgb(255, 255, 255);
+  opacity: 1;
 }
 
 .wheel__button {
