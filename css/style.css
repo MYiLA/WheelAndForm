@@ -333,10 +333,7 @@
 }
 
 .wheel--vertical .wheel__close {
-  width: 6em;
-  height: 6em;
   order: 1;
-  margin-right: 0.55em;
 }
 
 .wheel--vertical .wheel__thanks {
