@@ -9,6 +9,7 @@ window.showWheel = (sectors, callback) => {
   const smallReel = document.querySelector('.reel__inner--circle-small');
   const mediumReel = document.querySelector('.reel__inner--circle-medium');
   const contentReel = document.querySelector('.reel__inner--circle-content');
+  const sectorsContainer = document.querySelector('.reel__content');
   const resultText = document.querySelector('.reel__result-text');
   const resultValue = document.querySelector('.reel__result-value');
 
@@ -27,7 +28,7 @@ window.showWheel = (sectors, callback) => {
   const init = () => {
     wheel.style.opacity = 1;
 
-    contentReel.innerHTML = getSectorsHtml(sectors);
+    sectorsContainer.innerHTML = getSectorsHtml(sectors);
 
     resize();
     window.addEventListener('resize', resizeHandler);

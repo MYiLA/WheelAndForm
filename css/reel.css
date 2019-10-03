@@ -42,10 +42,12 @@
 .reel__inner--pointer {
   left: auto;
   right: -34em;
-  bottom: -6em;
   width: 117em;
   height: 128em;
+
   background-image: url(../img/reel-pointer.png);
+  transform-origin: -296em 50%;
+  transition: transform 1s;
 }
 
 .reel__inner--logo {
@@ -95,15 +97,21 @@
   font-weight: 700;
 }
 
+.reel__content {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+}
+
 .reel__sector {
   position: absolute;
   width: 160em;
   right: 58em;
   top: 50%;
-  transform-origin: -160em 50%;
-  transform: translateY(-50%) rotate(0);
 
   text-align: center;
+  transform: translateY(-50%) rotate(0);
+  transform-origin: -160em 50%;
 }
 
 .reel__sector-text {
@@ -119,6 +127,11 @@
 .wheel--confirm .reel__inner--result,
 .wheel--result .reel__inner--result {
   opacity: 1;
+}
+
+.wheel--vertical .reel__content,
+.wheel--vertical .reel__inner--pointer {
+  transform: rotate(-90deg);
 }
 
 
