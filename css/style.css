@@ -63,11 +63,6 @@
   font-size: 36em;
 }
 
-.wheel__close {
-  background-color: none;
-  border: none;
-}
-
 .wheel__form {
   box-sizing: border-box;
   padding-top: 100em;
@@ -263,12 +258,15 @@
 }
 
 .wheel__close {
-  width: 5em;
-  height: 5em;
+  width: 87em;
+  height: 87em;
   align-self: flex-start;
   flex-shrink: 0;
   padding-top: 1.15em;
   margin-top: 2.46em;
+
+  font-size: inherit;
+  border: none;
   background: none;
   background-image: url(../img/wheel-btn-close.png);
   background-repeat: no-repeat;
