@@ -155,7 +155,10 @@ window.showWheel = (sectors, callback) => {
       target.classList.remove('wheel__input--invalid');
     }
 
-    spinBtn.disabled = nameInput.value === '' || phoneInput.value === '' || !checkboxInput.checked;
+    const invalid = nameInput.value === '' || phoneInput.value === '' || !checkboxInput.checked;
+
+    spinBtn.disabled = invalid;
+    confirmBtn.disabled = invalid;
   };
 
   init();
