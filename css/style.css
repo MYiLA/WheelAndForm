@@ -24,7 +24,7 @@
   font-size: 1px;
   font-family: 'Montserrat', sans-serif;
   background-color: rgba(4, 4, 19, 0.89);
-  transition: font-size 1s, opacity 0.5s;
+  transition: opacity 0.5s;
 
   /* transform: translateZ(0); */
 }
