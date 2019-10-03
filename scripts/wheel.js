@@ -13,10 +13,12 @@ window.showWheel = (sectors, callback) => {
   const resultText = document.querySelector('.reel__result-text');
   const resultValue = document.querySelector('.reel__result-value');
 
+  const form = document.querySelector('.wheel__form');
   const nameInput = document.querySelector('.wheel__input[name=name]');
   const phoneInput = document.querySelector('.wheel__input[name=tel]');
   const checkboxInput = document.querySelector('.wheel__checkbox');
-  const continueBtn = document.querySelector('.wheel__button');
+  const spinBtn = document.querySelector('.wheel__button--spin');
+  const confirmBtn = document.querySelector('.wheel__button--confirm');
   const closeBtn = document.querySelector('.wheel__close');
 
   const availableSectors = sectors.filter(({ allow }) => allow);
@@ -33,11 +35,12 @@ window.showWheel = (sectors, callback) => {
     resize();
     window.addEventListener('resize', resizeHandler);
 
+    form.addEventListener('submit', submitHandler);
     nameInput.addEventListener('input', inputHandler);
     phoneInput.addEventListener('input', inputHandler);
     checkboxInput.addEventListener('input', inputHandler);
 
-    continueBtn.addEventListener('click', spin);
+    spinBtn.addEventListener('click', spin);
     closeBtn.addEventListener('click', hide);
   };
 
@@ -46,32 +49,34 @@ window.showWheel = (sectors, callback) => {
 
     clearTimeout(hideTimeoutId);
     clearInterval(countdownIntervalId);
-  
+
     window.removeEventListener('resize', resizeHandler);
-  
+
+    form.removeEventListener('submit', submitHandler);
     nameInput.removeEventListener('input', inputHandler);
     phoneInput.removeEventListener('input', inputHandler);
     checkboxInput.removeEventListener('input', inputHandler);
-  
-    continueBtn.removeEventListener('click', spin);
-    continueBtn.removeEventListener('click', confirm);
+
+    spinBtn.removeEventListener('click', spin);
+    confirmBtn.removeEventListener('click', confirm);
     closeBtn.removeEventListener('click', hide);
-  
+
     contentReel.removeEventListener('transitionend', spinStopHandler);
   };
 
   const spin = () => {
-    continueBtn.disabled = true;
+    spinBtn.removeEventListener('click', spin);
+    spinBtn.disabled = true;
     checkboxInput.disabled = true;
 
     const resultIndex = sectors.indexOf(resultSector);
     const angle = (5 * 360) - ((360 / sectors.length) * resultIndex);
     const randomOffset = 0.8 * (Math.random() - 0.5) * (360 / sectors.length);
-  
+
     contentReel.style.transform = `rotate(${angle + randomOffset}deg)`;
     smallReel.style.transform = `rotate(${(4 + Math.random()) * 360}deg)`;
     mediumReel.style.transform = `rotate(-${(4 + Math.random()) * 360}deg)`;
-  
+
     contentReel.addEventListener('transitionend', spinStopHandler);
   };
 
@@ -94,11 +99,11 @@ window.showWheel = (sectors, callback) => {
     const vertical = window.innerWidth < window.innerHeight;
     const defaultWidth = vertical ? 800 : 800;
     const defaultHeigth = vertical ? 800 : 800;
-  
+
     const scaleX = window.innerWidth / defaultWidth;
     const scaleY = window.innerHeight / defaultHeigth;
     const scale = Math.min(1, scaleX, scaleY);
-  
+
     if (vertical) {
       wheel.classList.add('wheel--vertical');
     } else {
@@ -109,6 +114,8 @@ window.showWheel = (sectors, callback) => {
 
   const resizeHandler = debounce(resize, 150);
 
+  const submitHandler = e => e.preventDefault();
+
   const inputHandler = ({ target }) => {
     if (target.value === '') {
       target.classList.add('wheel__input--invalid');
@@ -116,14 +123,14 @@ window.showWheel = (sectors, callback) => {
       target.classList.remove('wheel__input--invalid');
     }
 
-    continueBtn.disabled = nameInput.value === '' || phoneInput.value === '' || !checkboxInput.checked;
+    spinBtn.disabled = nameInput.value === '' || phoneInput.value === '' || !checkboxInput.checked;
   };
 
   const spinStopHandler = () => {
-    continueBtn.disabled = false;
+    contentReel.removeEventListener('transitionend', spinStopHandler);
 
     startCountdown();
-  
+
     wheel.classList.remove('wheel--initial');
     wheel.classList.add('wheel--confirm');
 
@@ -134,11 +141,11 @@ window.showWheel = (sectors, callback) => {
       resultValue.hidden = true;
     }
 
-    continueBtn.removeEventListener('click', spin);
-    continueBtn.addEventListener('click', confirm);
+    confirmBtn.addEventListener('click', confirm);
   };
 
   const confirm = () => {
+    confirmBtn.removeEventListener('click', confirm);
     wheel.classList.remove('wheel--confirm');
     wheel.classList.add('wheel--result');
 
