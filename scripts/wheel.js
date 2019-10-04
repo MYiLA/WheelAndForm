@@ -134,9 +134,8 @@ window.showWheel = (sectors, callback) => {
 
     const vertical = window.innerWidth < window.innerHeight;
 
-    // значения после + это хак для отступов от края экрана
-    const defaultWidth = vertical ? (860 + 30) : (1520 + 40);
-    const defaultHeigth = vertical ? (1400 + 40) : 756;
+    const defaultWidth = vertical ? 890 : 1560;
+    const defaultHeigth = vertical ? 1400 : 780;
 
     const scaleX = window.innerWidth / defaultWidth;
     const scaleY = window.innerHeight / defaultHeigth;
