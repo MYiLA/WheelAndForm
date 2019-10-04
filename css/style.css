@@ -34,15 +34,17 @@
 }
 
 .wheel__wrap {
-  width: 1520em;
-  height: 756em;
+  position: relative;
+  width: 1410em;
+  height: 780em;
   display: flex;
   justify-content: space-between;
   margin: auto;
+  padding-right: 115em;
 
   background-image: url(../img/wheel-background-horizontal.png);
   background-repeat: no-repeat;
-  background-position: 82% 86%;
+  background-position: 80% 67%;
   background-size: 1080em;
 }
 
@@ -55,6 +57,8 @@
   width: 425em;
   align-self: center;
   margin: 0;
+  margin-right: 115em;
+  margin-top: 30em;
   padding: 0;
 
   line-height: 43em;
@@ -69,11 +73,10 @@
 
 .wheel__form {
   box-sizing: border-box;
-  padding-top: 100em;
+  padding-top: 150em;
   padding-left: 6em;
   padding-right: 15em;
-  padding-bottom: 105em;
-  margin-left: 30em;
+  padding-bottom: 125em;
 }
 
 .wheel__title {
@@ -81,7 +84,6 @@
   display: block;
   margin: 0 auto;
   padding: 0;
-  padding-top: 1.6em;
   width: 20em;
 
   text-align: center;
@@ -247,7 +249,7 @@
 .wheel__counter {
   display: block;
   width: 100%;
-  min-height: 1.486em;
+  min-height: 1.402em;
   text-align: center;
   align-self: flex-end;
   margin: 0;
@@ -261,13 +263,12 @@
 }
 
 .wheel__close {
+  position: absolute;
   width: 87em;
   height: 87em;
   padding: 0;
-  align-self: flex-start;
-  flex-shrink: 0;
-  margin-top: 26em;
-  margin-left: 2px;
+  right: 0;
+  top: 42em;
 
   font-size: inherit;
   border: none;
@@ -291,19 +292,22 @@
 
 .wheel--vertical .wheel__wrap {
   position: relative;
-  width: 860em;
-  min-height: 1400em;
+  width: 725em;
+  min-height: 1335em;
+  padding-right: 70em;
+  padding-left: 55em;
+  padding-top: 50em;
   background-image: url(../img/wheel-background-vertical.png);
   background-size: 750em;
-  background-position: 34% 50%;
+  background-position: 30em 35em;
 }
 
 .wheel--vertical .wheel__form {
-  padding-top: 75em;
-  padding-bottom: 60em;
-  padding-left: 95em;
-  padding-right: 60em;
-  height: 1400em;
+  padding-top: 45em;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  height: 1320em;
   width: 715em;
 }
 
@@ -314,7 +318,6 @@
 
 .wheel--vertical .wheel__title {
   width: 19.35em;
-  padding-top: 0;
   padding-right: 0.35em;
   margin-bottom: 1.5em;
 }
@@ -324,8 +327,7 @@
 }
 
 .wheel--vertical .wheel__privacy {
-  margin-bottom: 0;
-  margin-right: -0.67em;
+  margin-bottom: 0.5em;
   box-shadow: -0.3em 0 0 0.4em rgb(4, 9, 12);
 }
 
@@ -337,14 +339,13 @@
 .wheel--vertical .wheel__reel {
   order: 1;
   position: absolute;
-  bottom: 120em;
-  left: 48%;
+  bottom: 90em;
+  left: 47%;
   transform: translateX(-50%)
 }
 
 .wheel--vertical .wheel__close {
-  margin-top: 0;
-  order: 1;
+  top: 0;
 }
 
 .wheel--vertical .wheel__thanks {
@@ -353,9 +354,9 @@
   justify-content: center;
   box-sizing: border-box;
 
-  height: 580em;
-  padding-top: 100em;
-  margin-left: 200em;
+  height: 415em;
+  padding-top: 0;
+  margin-left: 140em;
   align-self: flex-start;
 }
 
