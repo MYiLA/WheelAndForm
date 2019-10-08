@@ -317,7 +317,7 @@
 }
 
 .wheel--vertical .wheel__title {
-  width: 19.35em;
+  width: 20em;
   padding-right: 0.35em;
   margin-bottom: 1.5em;
 }
@@ -345,7 +345,8 @@
 }
 
 .wheel--vertical .wheel__close {
-  top: 0;
+  top: 6em;
+  right: -6em;
 }
 
 .wheel--vertical .wheel__thanks {
