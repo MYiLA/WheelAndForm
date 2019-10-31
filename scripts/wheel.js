@@ -15,11 +15,20 @@ window.showWheel = (sectors, callback) => {
 
   const form = document.querySelector('.wheel__form');
   const nameInput = document.querySelector('.wheel__input[name=username]');
-  const phoneInput = document.querySelector('.wheel__input[name=tel]');
+  const phoneInput = document.querySelector('.wheel__input[name=phone]');
   const checkboxInput = document.querySelector('.wheel__checkbox');
   const spinBtn = document.querySelector('.wheel__button--spin');
   const confirmBtn = document.querySelector('.wheel__button--confirm');
   const closeBtn = document.querySelector('.wheel__close');
+
+  const nameMask = IMask(nameInput, {
+    mask: /^(?!.*\s{2,})[a-zA-Zа-яА-Я\s]+$/,
+  });
+  const phoneMask = IMask(phoneInput, {
+    mask: '+{7}(000)000-00-00',
+    placeholderChar: '#',
+    lazy: false,
+  });
 
   const availableSectors = sectors.filter(({ allow }) => allow);
   const resultSector = availableSectors[random(availableSectors.length)];
@@ -37,7 +46,9 @@ window.showWheel = (sectors, callback) => {
 
     form.addEventListener('submit', submitHandler);
     nameInput.addEventListener('input', inputHandler);
+    nameInput.addEventListener('focusout', focusOutHandler);
     phoneInput.addEventListener('input', inputHandler);
+    phoneInput.addEventListener('focusout', focusOutHandler);
     checkboxInput.addEventListener('input', inputHandler);
 
     spinBtn.addEventListener('click', spin);
@@ -54,7 +65,9 @@ window.showWheel = (sectors, callback) => {
 
     form.removeEventListener('submit', submitHandler);
     nameInput.removeEventListener('input', inputHandler);
+    nameInput.removeEventListener('focusout', focusOutHandler);
     phoneInput.removeEventListener('input', inputHandler);
+    phoneInput.removeEventListener('focusout', focusOutHandler);
     checkboxInput.removeEventListener('input', inputHandler);
 
     spinBtn.removeEventListener('click', spin);
@@ -154,17 +167,28 @@ window.showWheel = (sectors, callback) => {
   const submitHandler = e => e.preventDefault();
 
   const inputHandler = ({ target }) => {
-    if (target.value === '') {
-      target.classList.add('wheel__input--invalid');
-    } else {
-      target.classList.remove('wheel__input--invalid');
-    }
+    validateInput(target, false);
 
-    const invalid = nameInput.value === '' || phoneInput.value === '' || !checkboxInput.checked;
+    const formInvalid = !isValid('username') || !isValid('phone') || !checkboxInput.checked;
 
-    spinBtn.disabled = invalid;
-    confirmBtn.disabled = invalid;
+    spinBtn.disabled = formInvalid;
+    confirmBtn.disabled = formInvalid;
   };
+
+  const focusOutHandler = ({ target }) => validateInput(target, true);
+
+  const validateInput = (el, setInvalid) => {
+    if (isValid(el.name)) {
+      el.classList.remove('wheel__input--invalid');
+    } else if (setInvalid) {
+      el.classList.add('wheel__input--invalid');
+    }
+  };
+
+  const isValid = (name) => ({
+    phone: phoneMask.unmaskedValue.length === 11,
+    username: nameMask.unmaskedValue.length >= 3,
+  }[name]);
 
   init();
 
