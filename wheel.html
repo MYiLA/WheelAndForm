@@ -48,7 +48,7 @@
               <label class="visually-hidden" for="wheel-form-tel">
                 Введите телефон
               </label>
-              <input class="wheel__input" type="tel" id="wheel-form-tel" name="tel" placeholder="+7 ___ ___ __ __"/>
+              <input class="wheel__input" type="tel" id="wheel-form-tel" name="phone" placeholder="+7(###)###-##-##"/>
               <button class="wheel__button wheel__button--spin" type="button" disabled>
                 Вперёд!
               </button>
@@ -72,6 +72,7 @@
     </div>
   </main>
 
+  <script src="scripts/imask.js"></script>
   <script src="scripts/wheel.js"></script>
   <script>
     const config = Array.from({

@@ -12,6 +12,9 @@
 }
 
 .wheel {
+  --scale: 1;
+  font-size: 1px;
+
   position: fixed;
   z-index: 10;
   top: 0;
@@ -21,7 +24,6 @@
   display: flex;
   opacity: 0;
 
-  font-size: 1px;
   font-family: 'Montserrat', sans-serif;
   background-color: rgba(4, 4, 19, 0.89);
   transition: opacity 0.5s;
@@ -35,17 +37,17 @@
 
 .wheel__wrap {
   position: relative;
-  width: 1410em;
-  height: 780em;
+  width: calc(1410px * var(--scale));
+  height: calc(780px * var(--scale));
   display: flex;
   justify-content: space-between;
   margin: auto;
-  padding-right: 115em;
+  padding-right: calc(115em * var(--scale));;
 
   background-image: url(../img/wheel-background-horizontal.png);
   background-repeat: no-repeat;
   background-position: 80% 67%;
-  background-size: 1080em;
+  background-size: calc(1080px * var(--scale));;
 }
 
 .wheel__reel {
