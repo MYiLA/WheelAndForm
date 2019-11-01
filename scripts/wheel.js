@@ -160,6 +160,7 @@ window.showWheel = (sectors, callback) => {
       wheel.classList.remove('wheel--vertical');
     }
     wheel.style.fontSize = `${scale}px`;
+    wheel.style.setProperty('--scale', scale);
   };
 
   const resizeHandler = debounce(resize, 150);
