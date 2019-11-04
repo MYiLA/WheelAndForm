@@ -2,8 +2,9 @@
 <html lang="ru">
 
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:600,700,400|Montserrat:600,700&display=swap&subset=cyrillic">
   <link rel="stylesheet" href="css/wheel.css" />
@@ -35,20 +36,24 @@
         <form class="wheel__form" method="POST" autocomplete="off">
           <div class="wheel__form-wrap">
             <p class="wheel__title wheel__title--initial">
-              Вращайте колесо, чтобы получить скидку на первый сеанс!
+              <span class="wheel__title-text">
+                Вращайте колесо, чтобы получить скидку на первый сеанс!
+              </span>
             </p>
             <p class="wheel__title wheel__title--confirm">
-              Забронируйте игру<br> в течение 10 минут
+              <span class="wheel__title-text">
+                Забронируйте игру<br> в течение 10 минут
+              </span>
             </p>
             <div class="wheel__authorization">
               <label class="visually-hidden" for="wheel-form-name" autofocus>
                 Введите имя
               </label>
-              <input class="wheel__input" type="text" id="wheel-form-name" name="username" placeholder="Ваше имя"/>
+              <input class="wheel__input" type="text" id="wheel-form-name" name="username" placeholder="Ваше имя" />
               <label class="visually-hidden" for="wheel-form-tel">
-                Введите телефон
+                  Введите телефон
               </label>
-              <input class="wheel__input" type="tel" id="wheel-form-tel" name="phone" placeholder="+7(###)###-##-##"/>
+              <input class="wheel__input" type="tel" id="wheel-form-tel" name="phone" placeholder="+7(###)###-##-##" />
               <button class="wheel__button wheel__button--spin" type="button" disabled>
                 Вперёд!
               </button>

@@ -1,7 +1,7 @@
 .reel {
   position: relative;
-  width: 756em;
-  height: 756em;
+  width: calc(756px * var(--scale));
+  height: calc(756px * var(--scale));
 
   font-family: 'IBM Plex Sans', sans-serif;
   color: #fff;
@@ -41,40 +41,40 @@
 
 .reel__inner--pointer {
   left: auto;
-  right: -34em;
-  width: 117em;
-  height: 128em;
+  right: calc(-34px * var(--scale));
+  width: calc(117px * var(--scale));
+  height: calc(128px * var(--scale));
 
   background-image: url(../img/reel-pointer.png);
-  transform-origin: -296em 50%;
+  transform-origin: calc(-296px * var(--scale)) 50%;
   transition: none;
 }
 
 .reel__inner--logo {
-  width: 138em;
-  height: 138em;
+  width: calc(138px * var(--scale));
+  height: calc(138px * var(--scale));
   background-image: url(../img/reel-logo.png);
 }
 .reel__inner--circle-small {
-  width: 208em;
-  height: 208em;
+  width: calc(208px * var(--scale));
+  height: calc(208px * var(--scale));
   background-image: url(../img/reel-circle-small.png);
 }
 .reel__inner--circle-medium {
-  width: 290em;
-  height: 290em;
+  width: calc(290px * var(--scale));
+  height: calc(290px * var(--scale));
   background-image: url(../img/reel-circle-medium.png);
 }
 .reel__inner--circle-content {
-  width: 756em;
-  height: 756em;
+  width: calc(756px * var(--scale));
+  height: calc(756px * var(--scale));
   background-image: url(../img/reel-circle-content.png);
   transition-timing-function: cubic-bezier(0.3, 0.58, 0.2, 1.02);
 }
 
 .reel__inner--result {
-  width: 614em;
-  height: 614em;
+  width: calc(614px * var(--scale));
+  height: calc(614px * var(--scale));
   border-radius: 50%;
 
   display: flex;
@@ -88,12 +88,12 @@
 }
 
 .reel__result-text {
-  font-size: 50em;
+  font-size: calc(50px * var(--scale));
   font-weight: 700;
 }
 
 .reel__result-value {
-  font-size: 70em;
+  font-size: calc(70px * var(--scale));
   font-weight: 700;
 }
 
@@ -104,23 +104,23 @@
 
 .reel__sector {
   position: absolute;
-  width: 160em;
-  right: 58em;
+  width: calc(160px * var(--scale));
+  right: calc(58px * var(--scale));
   top: 50%;
 
   text-align: center;
   transform: translateY(-50%) rotate(0);
-  transform-origin: -160em 50%;
+  transform-origin: calc(-160px * var(--scale)) 50%;
 }
 
 .reel__sector-text {
-  font-size: 23em;
+  font-size: calc(23px * var(--scale));
   font-weight: 700;
   transition: color 0.6s;
 }
 
 .reel__sector-text--big {
-  font-size: 40em;
+  font-size: calc(40px * var(--scale));
 }
 
 
