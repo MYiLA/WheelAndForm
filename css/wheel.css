@@ -204,7 +204,7 @@
   color: rgb(255, 255, 255);
   cursor: pointer;
   background-color: rgb(4, 9, 12);
-  box-shadow: calc(-2px * var(--scale)) 0 0 calc(20px * var(--scale)) rgb(4, 9, 12);
+  box-shadow: -2px 0 0 calc(20px * var(--scale)) rgb(4, 9, 12);
 }
 
 .wheel__privacy::before {
@@ -249,7 +249,7 @@
   left: 0;
   bottom: 0;
   background-color: rgb(204, 32, 39);
-  box-shadow: 0 calc(-1px * var(--scale)) 0 calc(0,4px * var(--scale)) rgba(204, 32, 39, 0.3);
+  box-shadow: 0 -1px 0 1px rgba(204, 32, 39, 0.3);
 }
 
 .wheel__counter {
