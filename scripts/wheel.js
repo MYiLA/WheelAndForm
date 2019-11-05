@@ -117,8 +117,8 @@ window.showWheel = (sectors, timeout, callback) => {
     wheel.classList.add('wheel--result');
 
     callback({
-      name: nameInput.value.trim(),
-      phone: phoneInput.value,
+      name: nameMask.unmaskedValue.trim(),
+      phone: phoneMask.unmaskedValue,
       value: resultSector.value,
     });
 
