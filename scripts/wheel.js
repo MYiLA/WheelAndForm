@@ -2,7 +2,7 @@
 
 (() => {
 
-window.showWheel = (sectors, callback) => {
+window.showWheel = (sectors, timeout, callback) => {
   const wheel = document.querySelector('.wheel');
   const countdown = document.querySelector('.wheel__counter-time');
 
@@ -117,12 +117,12 @@ window.showWheel = (sectors, callback) => {
     wheel.classList.add('wheel--result');
 
     callback({
-      name: nameInput.value,
+      name: nameInput.value.trim(),
       phone: phoneInput.value,
       value: resultSector.value,
     });
 
-    hideTimeoutId = setTimeout(hide, 3000);
+    hideTimeoutId = setTimeout(hide, timeout);
   };
 
   const startCountdown = () => {

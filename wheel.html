@@ -80,7 +80,7 @@
   <script src="scripts/imask.js"></script>
   <script src="scripts/wheel.js"></script>
   <script>
-    const config = Array.from({
+    const sectors = Array.from({
       length: 11
     }, (_, i) => ({
       text: `${(i + 1) * 5}%`,
@@ -91,9 +91,10 @@
       value: -1,
       allow: false,
     });
+    const timeout = 3000;
     const callback = result => console.log(result);
 
-    window.showWheel(config, callback);
+    window.showWheel(sectors, timeout, callback);
   </script>
 </body>
 
