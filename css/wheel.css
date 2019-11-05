@@ -13,7 +13,6 @@
 
 .wheel {
   --scale: 1;
-  font-size: 1px;
 
   position: fixed;
   z-index: 10;
@@ -27,8 +26,6 @@
   font-family: 'Montserrat', sans-serif;
   background-color: rgba(4, 4, 19, 0.89);
   transition: opacity 0.5s;
-
-  /* transform: translateZ(0); */
 }
 
 .wheel--visible {
