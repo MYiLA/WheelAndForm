@@ -4,7 +4,6 @@
 
 window.showWheel = (sectors, timeout, callback) => {
   const wheel = document.querySelector('.wheel');
-  const countdown = document.querySelector('.wheel__counter-time');
 
   const smallReel = document.querySelector('.reel__inner--circle-small');
   const mediumReel = document.querySelector('.reel__inner--circle-medium');
@@ -32,7 +31,6 @@ window.showWheel = (sectors, timeout, callback) => {
   const availableSectors = sectors.filter(({ allow }) => allow);
   const resultSector = availableSectors[random(availableSectors.length)];
 
-  let countdownIntervalId = null;
   let hideTimeoutId = null;
 
   const init = () => {
@@ -58,7 +56,6 @@ window.showWheel = (sectors, timeout, callback) => {
     wheel.classList.remove('wheel--visible');
 
     clearTimeout(hideTimeoutId);
-    clearInterval(countdownIntervalId);
 
     window.removeEventListener('resize', resizeHandler);
 
@@ -94,8 +91,6 @@ window.showWheel = (sectors, timeout, callback) => {
   const spinStopHandler = () => {
     contentReel.removeEventListener('transitionend', spinStopHandler);
 
-    startCountdown();
-
     wheel.classList.remove('wheel--initial');
     wheel.classList.add('wheel--result');
 
@@ -113,21 +108,6 @@ window.showWheel = (sectors, timeout, callback) => {
     });
   
     hideTimeoutId = setTimeout(hide, timeout);
-  };
-
-  const startCountdown = () => {
-    let secondsLeft = 10 * 60;
-    countdown.innerText = stringifyTime(secondsLeft);
-
-    countdownIntervalId = setInterval(() => {
-      if (secondsLeft <= 0) {
-        hide();
-        return;
-      }
-
-      secondsLeft -= 1;
-      countdown.innerText = stringifyTime(secondsLeft);
-    }, 1000);
   };
 
   const resize = () => {
@@ -199,15 +179,6 @@ const getSectorsHtml = sectors => sectors
     );
   })
   .reduce((acc, curr) => `${acc}${curr}`, '');
-
-const stringifyTime = seconds => {
-  const s = seconds % 60;
-  const m = (seconds - s) / 60;
-  const ss = s >= 10 ? s : `0${s}`;
-  const mm = m >= 10 ? m : `0${m}`;
-
-  return `${mm}:${ss}`;
-}
 
 const debounce = (func, delay) => {
   let timeoutId = null;
