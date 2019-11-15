@@ -18,7 +18,6 @@ window.showWheel = (sectors, timeout, callback) => {
   const phoneInput = document.querySelector('.wheel__input[name=phone]');
   const checkboxInput = document.querySelector('.wheel__checkbox');
   const spinBtn = document.querySelector('.wheel__button--spin');
-  const confirmBtn = document.querySelector('.wheel__button--confirm');
   const closeBtn = document.querySelector('.wheel__close');
 
   const nameMask = IMask(nameInput, {
@@ -71,7 +70,6 @@ window.showWheel = (sectors, timeout, callback) => {
     checkboxInput.removeEventListener('input', inputHandler);
 
     spinBtn.removeEventListener('click', spin);
-    confirmBtn.removeEventListener('click', confirm);
     closeBtn.removeEventListener('click', hide);
 
     contentReel.removeEventListener('transitionend', spinStopHandler);
@@ -99,7 +97,7 @@ window.showWheel = (sectors, timeout, callback) => {
     startCountdown();
 
     wheel.classList.remove('wheel--initial');
-    wheel.classList.add('wheel--confirm');
+    wheel.classList.add('wheel--result');
 
     if (isDiscount(resultSector.text)) {
       resultValue.innerText = resultSector.text;
@@ -108,20 +106,12 @@ window.showWheel = (sectors, timeout, callback) => {
       resultValue.hidden = true;
     }
 
-    confirmBtn.addEventListener('click', confirm);
-  };
-
-  const confirm = () => {
-    confirmBtn.removeEventListener('click', confirm);
-    wheel.classList.remove('wheel--confirm');
-    wheel.classList.add('wheel--result');
-
     callback({
       name: nameMask.unmaskedValue.trim(),
       phone: phoneMask.unmaskedValue,
       value: resultSector.value,
     });
-
+  
     hideTimeoutId = setTimeout(hide, timeout);
   };
 
@@ -173,7 +163,6 @@ window.showWheel = (sectors, timeout, callback) => {
     const formInvalid = !isValid('username') || !isValid('phone') || !checkboxInput.checked;
 
     spinBtn.disabled = formInvalid;
-    confirmBtn.disabled = formInvalid;
   };
 
   const focusOutHandler = ({ target }) => validateInput(target, true);

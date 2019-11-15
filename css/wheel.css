@@ -364,13 +364,7 @@
 }
 
 .wheel--initial .wheel__thanks,
-.wheel--initial .wheel__title--confirm,
-.wheel--initial .wheel__button--confirm,
 .wheel--initial .wheel__counter,
-.wheel--confirm .wheel__thanks,
-.wheel--confirm .wheel__title--initial,
-.wheel--confirm .wheel__button--spin,
-.wheel--confirm .wheel__privacy,
 .wheel--result .wheel__form {
   display: none;
 }
