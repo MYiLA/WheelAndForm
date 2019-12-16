@@ -2,9 +2,8 @@
 
 (() => {
 
-window.showWheel = (sectors, callback) => {
+window.showWheel = (sectors, timeout, callback) => {
   const wheel = document.querySelector('.wheel');
-  const countdown = document.querySelector('.wheel__counter-time');
 
   const smallReel = document.querySelector('.reel__inner--circle-small');
   const mediumReel = document.querySelector('.reel__inner--circle-medium');
@@ -18,7 +17,6 @@ window.showWheel = (sectors, callback) => {
   const phoneInput = document.querySelector('.wheel__input[name=phone]');
   const checkboxInput = document.querySelector('.wheel__checkbox');
   const spinBtn = document.querySelector('.wheel__button--spin');
-  const confirmBtn = document.querySelector('.wheel__button--confirm');
   const closeBtn = document.querySelector('.wheel__close');
 
   const nameMask = IMask(nameInput, {
@@ -33,7 +31,6 @@ window.showWheel = (sectors, callback) => {
   const availableSectors = sectors.filter(({ allow }) => allow);
   const resultSector = availableSectors[random(availableSectors.length)];
 
-  let countdownIntervalId = null;
   let hideTimeoutId = null;
 
   const init = () => {
@@ -59,7 +56,6 @@ window.showWheel = (sectors, callback) => {
     wheel.classList.remove('wheel--visible');
 
     clearTimeout(hideTimeoutId);
-    clearInterval(countdownIntervalId);
 
     window.removeEventListener('resize', resizeHandler);
 
@@ -71,7 +67,6 @@ window.showWheel = (sectors, callback) => {
     checkboxInput.removeEventListener('input', inputHandler);
 
     spinBtn.removeEventListener('click', spin);
-    confirmBtn.removeEventListener('click', confirm);
     closeBtn.removeEventListener('click', hide);
 
     contentReel.removeEventListener('transitionend', spinStopHandler);
@@ -96,10 +91,8 @@ window.showWheel = (sectors, callback) => {
   const spinStopHandler = () => {
     contentReel.removeEventListener('transitionend', spinStopHandler);
 
-    startCountdown();
-
     wheel.classList.remove('wheel--initial');
-    wheel.classList.add('wheel--confirm');
+    wheel.classList.add('wheel--result');
 
     if (isDiscount(resultSector.text)) {
       resultValue.innerText = resultSector.text;
@@ -108,36 +101,13 @@ window.showWheel = (sectors, callback) => {
       resultValue.hidden = true;
     }
 
-    confirmBtn.addEventListener('click', confirm);
-  };
-
-  const confirm = () => {
-    confirmBtn.removeEventListener('click', confirm);
-    wheel.classList.remove('wheel--confirm');
-    wheel.classList.add('wheel--result');
-
     callback({
-      name: nameInput.value,
-      phone: phoneInput.value,
+      name: nameMask.unmaskedValue.trim(),
+      phone: phoneMask.unmaskedValue,
       value: resultSector.value,
     });
-
-    hideTimeoutId = setTimeout(hide, 3000);
-  };
-
-  const startCountdown = () => {
-    let secondsLeft = 10 * 60;
-    countdown.innerText = stringifyTime(secondsLeft);
-
-    countdownIntervalId = setInterval(() => {
-      if (secondsLeft <= 0) {
-        hide();
-        return;
-      }
-
-      secondsLeft -= 1;
-      countdown.innerText = stringifyTime(secondsLeft);
-    }, 1000);
+  
+    hideTimeoutId = setTimeout(hide, timeout);
   };
 
   const resize = () => {
@@ -159,7 +129,7 @@ window.showWheel = (sectors, callback) => {
     } else {
       wheel.classList.remove('wheel--vertical');
     }
-    wheel.style.fontSize = `${scale}px`;
+
     wheel.style.setProperty('--scale', scale);
   };
 
@@ -173,7 +143,6 @@ window.showWheel = (sectors, callback) => {
     const formInvalid = !isValid('username') || !isValid('phone') || !checkboxInput.checked;
 
     spinBtn.disabled = formInvalid;
-    confirmBtn.disabled = formInvalid;
   };
 
   const focusOutHandler = ({ target }) => validateInput(target, true);
@@ -210,15 +179,6 @@ const getSectorsHtml = sectors => sectors
     );
   })
   .reduce((acc, curr) => `${acc}${curr}`, '');
-
-const stringifyTime = seconds => {
-  const s = seconds % 60;
-  const m = (seconds - s) / 60;
-  const ss = s >= 10 ? s : `0${s}`;
-  const mm = m >= 10 ? m : `0${m}`;
-
-  return `${mm}:${ss}`;
-}
 
 const debounce = (func, delay) => {
   let timeoutId = null;

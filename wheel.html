@@ -40,11 +40,6 @@
                 Вращайте колесо, чтобы получить скидку на первый сеанс!
               </span>
             </p>
-            <p class="wheel__title wheel__title--confirm">
-              <span class="wheel__title-text">
-                Забронируйте игру<br> в течение 10 минут
-              </span>
-            </p>
             <div class="wheel__authorization">
               <label class="visually-hidden" for="wheel-form-name" autofocus>
                 Введите имя
@@ -57,9 +52,6 @@
               <button class="wheel__button wheel__button--spin" type="button" disabled>
                 Вперёд!
               </button>
-              <button class="wheel__button wheel__button--confirm" type="submit">
-                Получить промокод
-              </button>
             </div>
             <input class="visually-hidden wheel__checkbox" type="checkbox" id="wheel-privacy" name="privacy" checked />
             <label class="wheel__privacy" for="wheel-privacy">
@@ -69,7 +61,6 @@
               </a>
               <br>и подписываюсь на получение рекламной рассылки
             </label>
-            <p class="wheel__counter">Осталось <span class="wheel__counter-time">10:00</span></p>
           </div>
         </form>
         <button class="wheel__close" type="button"></button>
@@ -80,7 +71,7 @@
   <script src="scripts/imask.js"></script>
   <script src="scripts/wheel.js"></script>
   <script>
-    const config = Array.from({
+    const sectors = Array.from({
       length: 11
     }, (_, i) => ({
       text: `${(i + 1) * 5}%`,
@@ -91,9 +82,10 @@
       value: -1,
       allow: false,
     });
+    const timeout = 3000;
     const callback = result => console.log(result);
 
-    window.showWheel(config, callback);
+    window.showWheel(sectors, timeout, callback);
   </script>
 </body>
 

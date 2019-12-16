@@ -123,13 +123,10 @@
   font-size: calc(40px * var(--scale));
 }
 
-
-.wheel--confirm .reel__inner--result,
 .wheel--result .reel__inner--result {
   opacity: 1;
 }
 
-.wheel--confirm .reel__sector-text,
 .wheel--result .reel__sector-text {
   color: rgba(255, 255, 255, 0.5);
 }
