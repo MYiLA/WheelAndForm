@@ -41,7 +41,7 @@
   margin: auto;
   padding-right: calc(115px * var(--scale));
 
-  background-image: url(../img/wheel-background-horizontal.png);
+  background-image: url(../img/new-year/wheel-background-horizontal.png);
   background-repeat: no-repeat;
   background-position: 80% 67%;
   background-size: calc(1080px * var(--scale));
@@ -284,7 +284,7 @@
   padding-right: calc(70px * var(--scale));
   padding-left: calc(55px * var(--scale));
   padding-top: calc(50px * var(--scale));
-  background-image: url(../img/wheel-background-vertical.png);
+  background-image: url(../img/new-year/wheel-background-vertical.png);
   background-size: calc(750px * var(--scale));
   background-position: calc(30px * var(--scale)) calc(35px * var(--scale));
 }

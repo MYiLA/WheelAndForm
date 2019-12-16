@@ -15,7 +15,7 @@
   width: 100%;
   height: 100%;
 
-  background-image: url(../img/reel-background.png);
+  background-image: url(../img/new-year/reel-background.png);
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -58,17 +58,17 @@
 .reel__inner--circle-small {
   width: calc(208px * var(--scale));
   height: calc(208px * var(--scale));
-  background-image: url(../img/reel-circle-small.png);
+  background-image: url(../img/new-year/reel-circle-small.png);
 }
 .reel__inner--circle-medium {
   width: calc(290px * var(--scale));
   height: calc(290px * var(--scale));
-  background-image: url(../img/reel-circle-medium.png);
+  background-image: url(../img/new-year/reel-circle-medium.png);
 }
 .reel__inner--circle-content {
   width: calc(756px * var(--scale));
   height: calc(756px * var(--scale));
-  background-image: url(../img/reel-circle-content.png);
+  background-image: url(../img/new-year/reel-circle-content.png);
   transition-timing-function: cubic-bezier(0.3, 0.58, 0.2, 1.02);
 }
 
