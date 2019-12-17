@@ -321,20 +321,22 @@
 }
 
  .wheel--vertical .wheel__wrap::before {
-   width: calc(1410px * var(--scale));
-  height: calc(780px * var(--scale));
-  top: calc(-20px * var(--scale));
-  left: calc(30px * var(--scale));
-  background-position: 0 100%;
-  background-size: calc(495px * var(--scale)) auto;
+   width: calc(900px * var(--scale));
+  height: calc(1295px * var(--scale));
+  top: 0;
+  left: calc(-60px * var(--scale));
   background-image: url(../img/new-year/wheel-snowdrift-vertical.png);
-  background-position: 0 100%;
-  background-size: calc(575px * var(--scale)) auto;
+  background-size: calc(900px * var(--scale)) auto;
   }
 
-/* .wheel--vertical .wheel__wrap::after {
-  background-color: rgba(32, 204, 89, 0.1);
-} */
+.wheel--vertical .wheel__wrap::after {
+  width: calc(935px * var(--scale));
+  height: calc(1350px * var(--scale));
+  top: calc(-45px * var(--scale));
+  left: calc(-60px * var(--scale));
+  background-image: url(../img/new-year/wheel-background-vertical-new-year.png);
+  background-size: calc(970px * var(--scale)) auto;
+}
 
 .wheel--vertical .wheel__form {
   padding-top: calc(55px * var(--scale));
