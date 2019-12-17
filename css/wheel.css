@@ -47,6 +47,34 @@
   background-size: calc(1080px * var(--scale));
 }
 
+.wheel__wrap::before,
+.wheel__wrap::after {
+  content: "";
+  position: absolute;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.wheel__wrap::before {
+  width: calc(1410px * var(--scale));
+  height: calc(780px * var(--scale));
+  top: calc(-20px * var(--scale));
+  left: calc(30px * var(--scale));
+  background-image: url(../img/new-year/wheel-snowdrift-horizontal.png);
+  background-position: 0 100%;
+  background-size: calc(495px * var(--scale)) auto;
+}
+
+.wheel__wrap::after {
+  width: calc(1650px * var(--scale));
+  height: calc(890px * var(--scale));
+  background-image: url(../img/new-year/wheel-background-horizontal-new-year.png);
+  z-index: 3;
+  background-size: 100% auto;
+  top: calc(-90px * var(--scale));
+  left: calc(20px * var(--scale));
+}
+
 .wheel__reel {
   flex-shrink: 0;
 }
@@ -85,7 +113,7 @@
   padding: 0;
   width: calc(595px * var(--scale));
   text-align: center;
-  
+
   line-height: calc(30px * var(--scale));
   font-weight: 700;
   color: rgb(255, 255, 255);
@@ -100,7 +128,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-} 
+}
 
 .wheel__authorization {
   display: flex;
@@ -123,7 +151,7 @@
   background-color: rgb(2, 6, 12);
   font-family: 'IBM Plex Sans', sans-serif;
   line-height: calc(27px * var(--scale));
-  font-size: calc(27px * var(--scale)); 
+  font-size: calc(27px * var(--scale));
   font-weight: 400;
   color: rgb(255, 255, 255);
   border-radius: calc(10px * var(--scale));
@@ -150,8 +178,10 @@
   width: 100%;
   text-align: center;
   margin-top: calc(15px * var(--scale));
-  padding: calc(15px * var(--scale));;
-  padding-top: calc(19px * var(--scale));;
+  padding: calc(15px * var(--scale));
+  ;
+  padding-top: calc(19px * var(--scale));
+  ;
   border: none;
   border-radius: calc(10px * var(--scale));
 
@@ -160,7 +190,8 @@
   background-color: rgb(204, 32, 39);
   font-weight: 400;
   font-size: calc(24px * var(--scale));
-  line-height: calc(24px * var(--scale));;
+  line-height: calc(24px * var(--scale));
+  ;
   text-transform: uppercase;
   color: rgb(255, 255, 255);
 }
@@ -239,7 +270,7 @@
 }
 
 .wheel__privacy-link::after {
-   content: '';
+  content: '';
   position: absolute;
   height: calc(1px * var(--scale));
   width: 100%;
@@ -288,6 +319,22 @@
   background-size: calc(750px * var(--scale));
   background-position: calc(30px * var(--scale)) calc(35px * var(--scale));
 }
+
+ .wheel--vertical .wheel__wrap::before {
+   width: calc(1410px * var(--scale));
+  height: calc(780px * var(--scale));
+  top: calc(-20px * var(--scale));
+  left: calc(30px * var(--scale));
+  background-position: 0 100%;
+  background-size: calc(495px * var(--scale)) auto;
+  background-image: url(../img/new-year/wheel-snowdrift-vertical.png);
+  background-position: 0 100%;
+  background-size: calc(575px * var(--scale)) auto;
+  }
+
+/* .wheel--vertical .wheel__wrap::after {
+  background-color: rgba(32, 204, 89, 0.1);
+} */
 
 .wheel--vertical .wheel__form {
   padding-top: calc(55px * var(--scale));
