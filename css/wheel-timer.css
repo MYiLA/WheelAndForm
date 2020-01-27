@@ -1,15 +1,17 @@
 /* подключить шрифт 'IBM Plex Sans' bold */
 .wheel-timer {
+  --scale: 1;
+
   position: fixed;
-  padding-top: 14px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 12px;
+  padding-top:  calc(14px * var(--scale));
+  padding-left: calc(30px * var(--scale));
+  padding-right: calc(30px * var(--scale));
+  padding-bottom: calc(12px * var(--scale));
   z-index: 10;
   left: 0;
-  bottom: 30px;
-  width: 380px;
-  height: 135px;
+  bottom: calc(30px * var(--scale));
+  width: calc(380px * var(--scale));
+  height: calc(135px * var(--scale));
   color: rgb(232, 229, 229);
   background-color: rgba(32, 34, 43, .9);
   font-family: 'IBM Plex Sans', sans-serif;
@@ -17,19 +19,19 @@
 }
 
 .wheel-timer__title {
-  width: 315px;
+  width: calc(315px * var(--scale));
   text-align: left;
   margin: 0 auto;
-  margin-bottom: 10px;
+  margin-bottom: calc(10px * var(--scale));
 }
 
 .wheel-timer__title-text {
-  font-size: 16px;
-  line-height: 16px;
+  font-size: calc(16px * var(--scale));
+  line-height: calc(16px * var(--scale));
 }
 
 .wheel-timer__timer {
-  width: 325px;
+  width: calc(325px * var(--scale));
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -37,7 +39,7 @@
 }
 
 .wheel-timer__wrap {
-  width: 64px;
+  width: calc(64px * var(--scale));
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -47,11 +49,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 56px;
+  width: calc(30px * var(--scale));
+  height: calc(56px * var(--scale));
   background-color: rgb(119, 122, 127);
-  font-size: 34px;
-  line-height: 34px;
+  font-size: calc(34px * var(--scale));
+  line-height: calc(34px * var(--scale));
   color: rgb(255, 254, 254);
 }
 
@@ -59,20 +61,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 56px;
-  margin-bottom: 13px;
-  font-size: 34px;
-  line-height: 34px;
+  width: calc(30px * var(--scale));
+  height: calc(56px * var(--scale));
+  margin-bottom: calc(13px * var(--scale));
+  font-size: calc(34px * var(--scale));
+  line-height: calc(34px * var(--scale));
   font-weight: 600;
   color: rgb(255, 254, 254);
 }
 
 .wheel-timer__desc {
   display: block;
-  width: 65px;
-  font-size: 12px;
-  line-height: 12px;
+  width: calc(65px * var(--scale));
+  font-size: calc(12px * var(--scale));
+  line-height: calc(12px * var(--scale));
   text-transform: uppercase;
   text-align: center;
+}
+
+.vertical.wheel-timer {
+  width: 100%;
+  bottom: calc(145px * var(--scale));
 }
