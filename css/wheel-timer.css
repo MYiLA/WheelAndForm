@@ -1,0 +1,78 @@
+/* подключить шрифт 'IBM Plex Sans' bold */
+.wheel-timer {
+  position: fixed;
+  padding-top: 14px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 12px;
+  z-index: 10;
+  left: 0;
+  bottom: 30px;
+  width: 380px;
+  height: 135px;
+  color: rgb(232, 229, 229);
+  background-color: rgba(32, 34, 43, .9);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+}
+
+.wheel-timer__title {
+  width: 315px;
+  text-align: left;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.wheel-timer__title-text {
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.wheel-timer__timer {
+  width: 325px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.wheel-timer__wrap {
+  width: 64px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.wheel-timer__sign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 56px;
+  background-color: rgb(119, 122, 127);
+  font-size: 34px;
+  line-height: 34px;
+  color: rgb(255, 254, 254);
+}
+
+.wheel-timer__sign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 56px;
+  margin-bottom: 13px;
+  font-size: 34px;
+  line-height: 34px;
+  font-weight: 600;
+  color: rgb(255, 254, 254);
+}
+
+.wheel-timer__desc {
+  display: block;
+  width: 65px;
+  font-size: 12px;
+  line-height: 12px;
+  text-transform: uppercase;
+  text-align: center;
+}
