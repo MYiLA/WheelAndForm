@@ -3,15 +3,14 @@
   --scale: 1;
 
   position: fixed;
-  padding-top:  calc(14px * var(--scale));
-  padding-left: calc(30px * var(--scale));
-  padding-right: calc(30px * var(--scale));
+  padding-top:  calc(10px * var(--scale));
+  padding-left: calc(10px * var(--scale));
+  padding-right: calc(5px * var(--scale));
   padding-bottom: calc(12px * var(--scale));
   z-index: 10;
   left: 0;
-  bottom: calc(30px * var(--scale));
+  bottom: 0;
   width: calc(380px * var(--scale));
-  height: calc(135px * var(--scale));
   color: rgb(232, 229, 229);
   background-color: rgba(32, 34, 43, .9);
   font-family: 'IBM Plex Sans', sans-serif;
@@ -81,5 +80,4 @@
 
 .vertical.wheel-timer {
   width: 100%;
-  bottom: calc(145px * var(--scale));
 }
