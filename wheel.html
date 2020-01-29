@@ -102,7 +102,10 @@
 
   <script src="scripts/imask.js"></script>
   <script src="scripts/wheel.js"></script>
+  <script src="scripts/timer.js"></script>
   <script>
+    const random = (max) => Math.floor(Math.random() * max);
+
     const sectors = Array.from({
       length: 11
     }, (_, i) => ({
@@ -115,7 +118,10 @@
       allow: false,
     });
     const timeout = 3000;
-    const callback = result => console.log(result);
+    const callback = result => {
+      console.log(result);
+      window.showTimer((random(1000) * random(1000) + 5) * 1000);
+    };
 
     window.showWheel(sectors, timeout, callback);
   </script>
