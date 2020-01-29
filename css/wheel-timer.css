@@ -1,12 +1,8 @@
-/* подключить шрифт 'IBM Plex Sans' bold */
 .wheel-timer {
   --scale: 1;
 
   position: fixed;
-  padding-top:  calc(10px * var(--scale));
-  padding-left: calc(10px * var(--scale));
-  padding-right: calc(5px * var(--scale));
-  padding-bottom: calc(12px * var(--scale));
+  padding: calc(10px * var(--scale)) 0;
   z-index: 10;
   left: 0;
   bottom: 0;
@@ -15,6 +11,12 @@
   background-color: rgba(32, 34, 43, .9);
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 400;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.wheel-timer--visible {
+  opacity: 1;
 }
 
 .wheel-timer__title {

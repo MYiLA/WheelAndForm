@@ -10,7 +10,7 @@ window.showTimer = (timeout) => {
 
   const countDownIntervalHandler = () => {
     if (secondsLeft <= 0) {
-      clearInterval(countdownIntervalId);
+      hide();
       return;
     }
 
@@ -25,11 +25,15 @@ window.showTimer = (timeout) => {
   };
 
   const init = () => {
+    timerElement.classList.add('wheel-timer--visible');
     updateTimer(secondsLeft);
     countdownIntervalId = setInterval(countDownIntervalHandler, 1000);
   };
 
-  const hide = () => {};
+  const hide = () => {
+    timerElement.classList.remove('wheel-timer--visible');
+    clearInterval(countdownIntervalId);
+  };
 
   init();
 
