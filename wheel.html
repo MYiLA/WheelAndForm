@@ -50,7 +50,7 @@
                 Введите телефон
               </label>
               <input class="wheel__input" type="tel" id="wheel-form-tel" name="phone" placeholder="+7(###)###-##-##" />
-              <button class="wheel__button wheel__button--spin" type="button" disabled>
+              <button class="wheel__button wheel__button--spin" type="submit" disabled>
                 Вперёд!
               </button>
             </div>
@@ -118,10 +118,11 @@
       allow: false,
     });
     const timeout = 3000;
-    const callback = result => {
+    const callback = result => setTimeout(() => {
       console.log(result);
-      window.showTimer((random(1000) * random(1000) + 5) * 1000);
-    };
+      const time = (random(1000) * random(1000) + 5) * 1000;
+      window.showTimer(time);
+    }, timeout);
 
     window.showWheel(sectors, timeout, callback);
   </script>
